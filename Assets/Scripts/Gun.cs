@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Gun : MonoBehaviour {
 
+	float baseXScale;
+
 	public bool isAuto;
 
 	public int bulletsPerShot;
@@ -22,6 +24,7 @@ public class Gun : MonoBehaviour {
 	void Start()
 	{
 		fireRateCounter = fireRate;
+		baseXScale = transform.localScale.x;
 	}
 
 	void Update ()
@@ -53,6 +56,7 @@ public class Gun : MonoBehaviour {
 
 		//Get rotation in radians
 		float rotation = Mathf.Atan2 (mousePos.y - transform.position.y, mousePos.x - transform.position.x);
+
 		//Convert to degrees
 		rotation *= (180 / Mathf.PI);
 
