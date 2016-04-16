@@ -19,18 +19,21 @@ public class BoardCreator : MonoBehaviour
 	public GameObject[] floorTiles;                           // An array of floor tile prefabs.
 	public GameObject[] wallTiles;                            // An array of wall tile prefabs.
 	public GameObject[] outerWallTiles;                       // An array of outer wall tile prefabs.
-	public GameObject player;
 
 	private TileType[][] tiles;                               // A jagged array of tile types representing the board, like a grid.
 	private Room[] rooms;                                     // All the rooms that are created for this board.
 	private Corridor[] corridors;                             // All the corridors that connect the rooms.
 	private GameObject boardHolder;                           // GameObject that acts as a container for all other tiles.
+
 	private Level level;
+	private GameObject player;
 
 	private void Start ()
 	{
 		// Create the board holder.
 		boardHolder = new GameObject("BoardHolder");
+
+		player = GameObject.Find ("Player");
 
 		level = GetComponent<Level> ();
 
@@ -96,10 +99,10 @@ public class BoardCreator : MonoBehaviour
 				corridors[i].SetupCorridor(rooms[i], corridorLength, roomWidth, roomHeight, columns, rows, false);
 			}
 
-			if (i == rooms.Length *.5f)
+			if (i == (int)(rooms.Length *.5f))
 			{
 				Vector3 playerPos = new Vector3 (rooms[i].xPos, rooms[i].yPos, 0);
-				Instantiate(player, playerPos, Quaternion.identity);
+				player.transform.position = playerPos;
 			}
 		}
 
