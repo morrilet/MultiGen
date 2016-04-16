@@ -5,27 +5,21 @@ public class Player : Entity
 {
 	public float speed;
 
-	Vector3 playerVelocity;
+	Rigidbody2D rb;
 
 	void Start ()
 	{
-	
+		rb = GetComponent<Rigidbody2D> ();
 	}
 
 	void Update ()
 	{
-		HandleInput ();
-		Move (playerVelocity);
+		UpdateMovement ();
 	}
 
-	void HandleInput()
+	void UpdateMovement()
 	{
-		playerVelocity = new Vector3 (Input.GetAxis ("Horizontal") * speed, Input.GetAxis ("Vertical") * speed, 0);
+		rb.velocity = new Vector2 (Mathf.Lerp(0, Input.GetAxis("Horizontal") * speed, Time.deltaTime),
+			Mathf.Lerp(0, Input.GetAxis("Vertical") * speed, Time.deltaTime));
 	}
-
-	void Move(Vector3 velocity)
-	{
-		transform.position = Vector3.Lerp (transform.position, velocity + transform.position, Time.deltaTime);
-	}
-
 }

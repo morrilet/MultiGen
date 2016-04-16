@@ -1,15 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD:Assets/Prefabs/Bullet.prefab
 --- !u!1 &103088
+=======
+--- !u!1 &156838
+>>>>>>> origin/master:Assets/Prefabs/Player.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/Bullet.prefab
   - 4: {fileID: 469420}
   - 114: {fileID: 11474474}
   - 212: {fileID: 21253162}
+=======
+  - 4: {fileID: 490402}
+  - 212: {fileID: 21277644}
+  - 114: {fileID: 11448744}
+>>>>>>> origin/master:Assets/Prefabs/Player.prefab
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -17,11 +27,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Prefabs/Bullet.prefab
 --- !u!4 &469420
+=======
+--- !u!4 &490402
+>>>>>>> origin/master:Assets/Prefabs/Player.prefab
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Prefabs/Bullet.prefab
   m_GameObject: {fileID: 103088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.349, y: 0.264, z: 0}
@@ -30,16 +45,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &11474474
+=======
+  m_GameObject: {fileID: 156838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.53491503, y: 0.09955981, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11448744
+>>>>>>> origin/master:Assets/Prefabs/Player.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Prefabs/Bullet.prefab
   m_GameObject: {fileID: 103088}
+=======
+  m_GameObject: {fileID: 156838}
+>>>>>>> origin/master:Assets/Prefabs/Player.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075132d968d7a1d459305f3edaf9639e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Prefabs/Bullet.prefab
   bulletSpeed: 0
   bulletSpeedDeviation: 0
   maxRange: 0
@@ -47,11 +77,20 @@ MonoBehaviour:
   sleepFramesOnHit: 0
   startPos: {x: 0, y: 0, z: 0}
 --- !u!212 &21253162
+=======
+  maxHealth: 100
+  speed: 0.5
+--- !u!212 &21277644
+>>>>>>> origin/master:Assets/Prefabs/Player.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Prefabs/Bullet.prefab
   m_GameObject: {fileID: 103088}
+=======
+  m_GameObject: {fileID: 156838}
+>>>>>>> origin/master:Assets/Prefabs/Player.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -85,5 +124,9 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/Bullet.prefab
   m_RootGameObject: {fileID: 103088}
+=======
+  m_RootGameObject: {fileID: 156838}
+>>>>>>> origin/master:Assets/Prefabs/Player.prefab
   m_IsPrefabParent: 1
