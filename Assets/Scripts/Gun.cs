@@ -17,7 +17,6 @@ public class Gun : MonoBehaviour {
 	public GameObject muzzleFlash;
 
 	//Bullet data
-	public float maxRange;
 	public float bulletSpeed;
 
 	void Start()
@@ -74,11 +73,12 @@ public class Gun : MonoBehaviour {
 		Quaternion rotationHolder = new Quaternion ();
 		rotationHolder.eulerAngles = new Vector3 (0, 0, Random.Range (-rotationDeviation, rotationDeviation) + transform.rotation.eulerAngles.z);
 
-		GameObject bullet = Instantiate (bulletPrefab, new Vector3 (0, 0, 0), rotationHolder) as GameObject;
+		GameObject bullet = Instantiate (bulletPrefab, transform.position, rotationHolder) as GameObject;
 
 		//Pass Parameters to instantiated bullet
-		bullet.GetComponent<Bullet> ().maxRange = maxRange;
 		bullet.GetComponent<Bullet> ().bulletSpeed = bulletSpeed;
 		bullet.GetComponent<Bullet> ().bulletSpeedDeviation = bulletSpeedDeviation;
+
+		Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), transform.parent.GetComponent<Collider2D> ());
 	}
 }

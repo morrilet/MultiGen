@@ -8,8 +8,6 @@ public class Bullet : MonoBehaviour {
 	[HideInInspector]
 	public float bulletSpeedDeviation; //Used for shotguns
 	[HideInInspector]
-	public float maxRange;
-	[HideInInspector]
 	public float damage;
 	[HideInInspector]
 	public float sleepFramesOnHit;
@@ -22,16 +20,12 @@ public class Bullet : MonoBehaviour {
 	{
 		startPos = transform.position;
 		bulletSpeed += Random.Range (-1 * bulletSpeedDeviation, bulletSpeedDeviation);
+		Physics2D.IgnoreCollision (GetComponent<Collider2D> (), GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> ());
 	}
 
 	void Update () 
 	{
 		transform.position += bulletSpeed * transform.right * Time.deltaTime;
-
-		if (maxRange <= Mathf.Abs(startPos.x - transform.position.x))
-		{
-			Destroy (gameObject);
-		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)

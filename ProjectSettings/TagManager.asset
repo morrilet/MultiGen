@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AIPathDoor
   - AIPathCell
+  - Wall
   layers:
   - Default
   - TransparentFX
