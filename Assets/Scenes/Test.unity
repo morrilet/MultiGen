@@ -85,48 +85,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &548321377
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 496008, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496008, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496008, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496008, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496008, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496008, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496008, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 496008, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f930bed898275cb4999338ee014b07f1, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &574329704
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,14 +199,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb940bc0bdf66cc45a12b89d36244361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAuto: 0
-  bulletsPerShot: 0
-  fireRate: 0
-  rotationDeviation: 0
-  bulletSpeed: 0
+  isAuto: 1
+  bulletsPerShot: 1
+  fireRate: 0.05
+  rotationDeviation: 2
   bulletSpeedDeviation: 0
-  bullet: {fileID: 0}
+  bulletPrefab: {fileID: 103088, guid: 9145a2cb577cccf4381ac59152e407e0, type: 2}
   muzzleFlash: {fileID: 0}
+  maxRange: 15
+  bulletSpeed: 5
 --- !u!212 &1971852094
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -290,4 +249,4 @@ Transform:
   m_LocalScale: {x: 1, y: 0.28018945, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
