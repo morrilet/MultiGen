@@ -80,6 +80,26 @@ public class Room
 		PlaceEnemies ();
 	}
 
+	public void AddVial()
+	{
+		int vialType = Random.Range (1, 4);
+		Vector2 vialPos = new Vector2 (xPos + (roomWidth * Random.Range (.1f, .9f)), yPos + (roomHeight * Random.Range (.1f, .9f)));
+
+		GameObject vial = GameObject.Instantiate (Resources.Load("Vial", typeof(GameObject)), vialPos, Quaternion.identity) as GameObject;
+		switch (vialType) 
+		{
+		case 1:
+			vial.GetComponent<Vial> ().characterToChangeTo = Vial.CharacterToChangeTo.Lemmy;
+			break;
+		case 2:
+			vial.GetComponent<Vial> ().characterToChangeTo = Vial.CharacterToChangeTo.Cordulator;
+			break;
+		case 3:
+			vial.GetComponent<Vial> ().characterToChangeTo = Vial.CharacterToChangeTo.Francus;
+			break;
+		}
+	}
+
 	private void PlaceEnemies()
 	{
 		enemyCount = Random.Range (0, 2);
