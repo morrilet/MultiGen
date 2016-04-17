@@ -8,20 +8,38 @@ public class Enemy : MonoBehaviour
 
 	Player player;
 
+	public GameObject currentCell;
+
 	float distanceToPlayer;
 	bool playerInSight;
 
-	float speed;
+	public float speed;
 
 	void Start()
 	{
 		player = GameObject.Find ("Player").GetComponent<Player> ();
+		currentCell = null;
 	}
 
 	void Update()
 	{
 		GetDistanceToPlayer ();
 		GetPlayerInSight ();
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.tag == "AIPathCell") 
+		{
+			currentCell = other.gameObject;
+		}
+	}
+	void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.gameObject.tag == "AIPathCell")
+		{
+			currentCell = other.gameObject;
+		}
 	}
 
 	void GetDistanceToPlayer()

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class AIPathCell : MonoBehaviour 
 {
-	[HideInInspector]
+	//[HideInInspector]
 	public List<GameObject> doors = new List<GameObject>();
 
 	public float dir = -1;
@@ -14,6 +14,11 @@ public class AIPathCell : MonoBehaviour
 		if (other.tag == "AIPathDoor") 
 		{
 			doors.Add (other.gameObject);
+		}
+
+		if (other.tag == "Enemy") 
+		{
+			other.GetComponent<Enemy> ().currentCell = this.gameObject;
 		}
 	}
 }
