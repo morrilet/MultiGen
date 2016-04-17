@@ -197,7 +197,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 177313901
+  m_SortingLayerID: -1812710535
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -1982,6 +1982,10 @@ Prefab:
       propertyPath: sightLayerMask.m_Bits
       value: 1280
       objectReference: {fileID: 0}
+    - target: {fileID: 184108, guid: 9e8ca1d2659715740b92da52529dd77b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e8ca1d2659715740b92da52529dd77b, type: 2}
   m_IsPrefabParent: 0
@@ -2026,7 +2030,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 129646, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 21254154, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
       propertyPath: m_SortingOrder

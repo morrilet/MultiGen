@@ -56,12 +56,12 @@ public class Enemy : Entity
 		//Debug.DrawLine (transform.position, player.transform.position, Color.blue);
 		if (hit.collider != null)
 		{
-			if (hit.collider.gameObject.tag == "Player") 
+			if (hit.collider.gameObject.tag == "Player")
 			{
 				playerInSight = true;
 				Debug.DrawLine (transform.position, player.transform.position, Color.blue);
 			}
-			if (hit.collider.gameObject.tag == "Wall") 
+			if (hit.collider.gameObject.tag == "Wall")
 			{
 				playerInSight = false;
 				Debug.DrawLine (transform.position, player.transform.position, Color.red);
