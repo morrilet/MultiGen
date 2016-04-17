@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : Entity 
+public class Enemy : MonoBehaviour 
 {
 	public Animator stateMachine;
 	public LayerMask sightLayerMask; //The layers that the enemy AI can see.
