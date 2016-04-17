@@ -4,32 +4,46 @@ using System.Collections;
 public class Player : Entity
 {
 	public float speed;
+	public int currentCharacter; //1 = Lemmy, 2 = Cordulator, 3 = Francus
 
 	Rigidbody2D rb;
 	Animator animator;
+
+	GameObject beeGun;
+	GameObject revolver;
+	GameObject airGun;
+
+	GameObject activeGun;
 
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+
+		beeGun = transform.FindChild ("Bee Gun").gameObject;
+		revolver = transform.FindChild ("Revolver").gameObject;
+		airGun = transform.FindChild ("HairDryerGun").gameObject;
+
+		UpdateCharacter();
 	}
 
 	void Update ()
 	{
 		if (Input.GetKeyDown (KeyCode.Keypad1))
-			animator.SetInteger ("Character", 1);
+			currentCharacter = 1;
 		if (Input.GetKeyDown (KeyCode.Keypad2))
-			animator.SetInteger ("Character", 2);
+			currentCharacter = 2;
 		if (Input.GetKeyDown (KeyCode.Keypad3))
-			animator.SetInteger ("Character", 3);
-
+			currentCharacter = 3;
+		
+		UpdateCharacter ();
 		UpdateMovement ();
 		FlipGun ();
 	}
 
 	void FlipGun()
 	{
-		GameObject gun = transform.FindChild ("Gun").gameObject;
+		GameObject gun = activeGun;
 
 		float gunRotation = gun.transform.eulerAngles.z;
 		if (gunRotation > 180)
@@ -49,5 +63,35 @@ public class Player : Entity
 			Mathf.Lerp(0, Input.GetAxis("Vertical") * speed, Time.deltaTime));
 		rb.velocity = velocity;
 		animator.SetFloat ("Speed", Mathf.Abs (velocity.magnitude));
+	}
+
+	void UpdateCharacter()
+	{
+		animator.SetInteger ("Character", currentCharacter);
+
+		switch (currentCharacter)
+		{
+		case 1://Lemmy
+			activeGun = beeGun;
+
+			beeGun.SetActive(true);
+			revolver.SetActive(false);
+			airGun.SetActive(false);
+			break;
+		case 2://Cordulator
+			activeGun = airGun;
+
+			airGun.SetActive(true);
+			revolver.SetActive(false);
+			beeGun.SetActive(false);
+			break;
+		case 3://Francus
+			activeGun = revolver;
+
+			revolver.SetActive(true);
+			beeGun.SetActive(false);
+			airGun.SetActive(false);
+			break;
+		}
 	}
 }
