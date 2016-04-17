@@ -16,6 +16,11 @@ public class Player : Entity
 
 	void Update ()
 	{
+		if (Input.GetKeyDown (KeyCode.Keypad1))
+			animator.SetInteger ("Character", 1);
+		if (Input.GetKeyDown (KeyCode.Keypad2))
+			animator.SetInteger ("Character", 2);
+
 		UpdateMovement ();
 	}
 

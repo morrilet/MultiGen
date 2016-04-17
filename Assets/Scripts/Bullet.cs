@@ -16,21 +16,21 @@ public class Bullet : MonoBehaviour {
 	[HideInInspector]
 	public Vector3 startPos;
 
-	void Start()
+	public virtual void Start()
 	{
 		startPos = transform.position;
 		bulletSpeed += Random.Range (-1 * bulletSpeedDeviation, bulletSpeedDeviation);
 		Physics2D.IgnoreCollision (GetComponent<Collider2D> (), GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> ());
 	}
 
-	void Update () 
+	public virtual void Update () 
 	{
 		transform.position += bulletSpeed * transform.right * Time.deltaTime;
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.06f, .1f);
+		Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.05f, .1f);
 
 		if (coll.gameObject.tag == "Wall")
 		{

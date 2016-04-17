@@ -65,6 +65,7 @@ public class Gun : MonoBehaviour {
 
 	public void Shoot ()
 	{
+//		Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.05f, .1f);
 		fireRateCounter = 0;
 		for (int i = 0; i < bulletsPerShot; i++)
 		{
