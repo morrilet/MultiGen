@@ -13,7 +13,6 @@ public class Corridor
 	public int corridorLength;            // How many units long the corridor is.
 	public Direction direction;   // Which direction the corridor is heading from it's room.
 
-
 	// Get the end position of the corridor based on it's start position and which direction it's heading.
 	public int EndPositionX
 	{
@@ -63,7 +62,6 @@ public class Corridor
 			directionInt++;
 			directionInt = directionInt % 4;
 			direction = (Direction)directionInt;
-
 		}
 
 		// Set a random length.
@@ -104,5 +102,25 @@ public class Corridor
 
 		// We clamp the length of the corridor to make sure it doesn't go off the board.
 		corridorLength = Mathf.Clamp (corridorLength, 1, maxLength);
+
+		SetupAIPathCell ();
+	}
+
+	private void SetupAIPathCell()
+	{
+		Vector3 cellPos = new Vector3(startXPos, startYPos);
+
+		if (direction == Direction.North)
+			cellPos.y += corridorLength / 2;
+		if (direction == Direction.East)
+			cellPos.x += corridorLength / 2;
+		if (direction == Direction.South)
+			cellPos.y -= corridorLength / 2;
+		if (direction == Direction.West)
+			cellPos.x -= corridorLength / 2;
+
+		GameObject cell = GameObject.Instantiate (Resources.Load("AIPathCell", typeof(GameObject)), cellPos, Quaternion.identity) as GameObject;
+		Vector2 startEndDiff = new Vector2 (Mathf.Abs (startXPos - EndPositionX), Mathf.Abs (startYPos - EndPositionY));
+		cell.transform.localScale = new Vector3 ((startEndDiff.x > 1)?startEndDiff.x:1f, (startEndDiff.y > 1)?startEndDiff.y:1, 1f);
 	}
 }

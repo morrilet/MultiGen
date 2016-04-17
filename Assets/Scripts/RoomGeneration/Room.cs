@@ -18,13 +18,12 @@ public class Room
 		roomWidth = widthRange.Random;
 		roomHeight = heightRange.Random;
 
-		//GameObject.Instantiate (, new Vector3(widthRange.Random, heightRange.Random, 0), Quaternion.identity);
-
 		// Set the x and y coordinates so the room is roughly in the middle of the board.
 		xPos = Mathf.RoundToInt(columns / 2f - roomWidth / 2f);
 		yPos = Mathf.RoundToInt(rows / 2f - roomHeight / 2f);
-	}
 
+		SetupAIPathCell ();
+	}
 
 	// This is an overload of the SetupRoom function and has a corridor parameter that represents the corridor entering the room.
 	public void SetupRoom (IntRange widthRange, IntRange heightRange, int columns, int rows, Corridor corridor)
@@ -76,5 +75,22 @@ public class Room
 			yPos = Mathf.Clamp (yPos, 0, rows - roomHeight);
 			break;
 		}
+
+		SetupAIPathCell ();
+	}
+
+	private void SetupAIPathCell()
+	{
+		Vector3 cellPos = new Vector3(xPos + (roomWidth / 2), yPos + (roomHeight / 2));
+		if (roomHeight % 2 == 0) 
+		{
+			cellPos.y = (int)cellPos.y - .5f;
+		}
+		if (roomWidth % 2 == 0) 
+		{
+			cellPos.x = (int)cellPos.x - .5f;
+		}
+		GameObject cell = GameObject.Instantiate (Resources.Load("AIPathCell", typeof(GameObject)), cellPos, Quaternion.identity) as GameObject;
+		cell.transform.localScale = new Vector3 (roomWidth, roomHeight, 1f);
 	}
 }

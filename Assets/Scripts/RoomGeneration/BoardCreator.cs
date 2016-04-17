@@ -25,6 +25,9 @@ public class BoardCreator : MonoBehaviour
 	private Corridor[] corridors;                             // All the corridors that connect the rooms.
 	private GameObject boardHolder;                           // GameObject that acts as a container for all other tiles.
 
+	private AIPathCell[] pathCells;
+	private AIPathDoor[] pathDoors;
+
 	private Level level;
 	private GameObject player;
 
@@ -70,6 +73,9 @@ public class BoardCreator : MonoBehaviour
 
 		// There should be one less corridor than there is rooms.
 		corridors = new Corridor[rooms.Length - 1];
+
+		pathCells = new AIPathCell[rooms.Length + corridors.Length];
+		pathDoors = new AIPathDoor[pathCells.Length - 1];
 
 		// Create the first room and corridor.
 		rooms[0] = new Room ();
