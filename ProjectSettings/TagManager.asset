@@ -8,6 +8,10 @@ TagManager:
   - AIPathCell
   - Wall
   - Enemy
+<<<<<<< HEAD
+=======
+  - Bullet
+>>>>>>> origin/master
   layers:
   - Default
   - TransparentFX
@@ -20,7 +24,7 @@ TagManager:
   - AIPath
   - Player
   - Wall
-  - 
+  - Bullet
   - 
   - 
   - 

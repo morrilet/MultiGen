@@ -14,7 +14,8 @@ public class Gun : MonoBehaviour {
 	public int bulletsPerShot;
 
 	public float fireRate;
-	float fireRateCounter;
+	[HideInInspector]
+	public float fireRateCounter;
 
 	public float rotationDeviation;
 	public float bulletSpeedDeviation;
@@ -22,17 +23,19 @@ public class Gun : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public GameObject muzzleFlash;
 
+	public string shootSound;
+
 	//Bullet data
 	public float bulletSpeed;
 
-	void Start()
+	public virtual void Start()
 	{
 		fireRateCounter = fireRate;
 		baseXScale = transform.localScale.x;
 		flipped = false;
 	}
 
-	void Update ()
+	public virtual void Update ()
 	{
 		fireRateCounter += Time.deltaTime;
 		HandleInput ();
@@ -44,17 +47,17 @@ public class Gun : MonoBehaviour {
 			GetComponent<SpriteRenderer> ().sprite = gunImage;
 	}
 
-	void HandleInput ()
+	public virtual void HandleInput ()
 	{
 		if (isAuto)
 		{
 			if(Input.GetButton("Fire") && fireRateCounter >= fireRate)
-				Shoot();
+				Shoot(bulletsPerShot);
 		}
 		if (!isAuto)
 		{
 			if (Input.GetButtonDown ("Fire") && fireRateCounter >= fireRate)
-				Shoot ();
+				Shoot (bulletsPerShot);
 		}
 	}
 
@@ -74,11 +77,12 @@ public class Gun : MonoBehaviour {
 		transform.rotation = Quaternion.Euler (transform.eulerAngles.x, transform.eulerAngles.y, rotation);
 	}
 
-	public void Shoot ()
+	public virtual void Shoot (int bulletsToInstantiate)
 	{
 //		Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.05f, .1f);
+		AudioManager.instance.PlaySoundEffectVariation(shootSound, 1, 3);
 		fireRateCounter = 0;
-		for (int i = 0; i < bulletsPerShot; i++)
+		for (int i = 0; i < bulletsToInstantiate; i++)
 		{
 			InstantiateBullet ();
 		}
@@ -92,7 +96,7 @@ public class Gun : MonoBehaviour {
 		GameObject bullet = Instantiate (bulletPrefab, transform.position, rotationHolder) as GameObject;
 
 		//Pass Parameters to instantiated bullet
-		bullet.GetComponent<Bullet> ().bulletSpeed = bulletSpeed;
+		bullet.GetComponent<Bullet> ().bulletSpeed = bulletSpeed + Random.Range(-bulletSpeedDeviation, bulletSpeedDeviation);
 		bullet.GetComponent<Bullet> ().bulletSpeedDeviation = bulletSpeedDeviation;
 
 		Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), transform.parent.GetComponent<Collider2D> ());

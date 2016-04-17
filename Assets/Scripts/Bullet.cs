@@ -30,8 +30,6 @@ public class Bullet : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.05f, .1f);
-
 		if (coll.gameObject.tag == "Wall")
 		{
 //			GameObject impact = Instantiate (impactEffect, transform.position, transform.rotation) as GameObject;
@@ -41,6 +39,7 @@ public class Bullet : MonoBehaviour {
 		if (coll.gameObject.tag == "Enemy")
 		{
 			Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.1f, .075f);
+			GameManager.instance.Sleep (2);
 			Destroy (gameObject);
 		}
 	}
