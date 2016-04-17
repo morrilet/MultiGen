@@ -17,6 +17,23 @@ public class Player : Entity
 	void Update ()
 	{
 		UpdateMovement ();
+		FlipGun ();
+	}
+
+	void FlipGun()
+	{
+		GameObject gun = transform.FindChild ("Gun").gameObject;
+
+		float gunRotation = gun.transform.eulerAngles.z;
+		if (gunRotation > 180)
+			gunRotation = Mathf.Abs(360 - gun.transform.eulerAngles.z);
+
+		if (gunRotation > 90)
+			gun.GetComponent<Gun> ().flipped = true;
+		else
+			gun.GetComponent<Gun> ().flipped = false;
+
+		Debug.Log (gunRotation);
 	}
 
 	void UpdateMovement()

@@ -212,7 +212,7 @@ public class BoardCreator : MonoBehaviour
 		level.xMin = leftEdgeX - .5f;
 		level.yMax = topEdgeY + .5f;
 		level.yMin = bottomEdgeY - .5f;
-		Debug.Log (level.xMax);
+		//Debug.Log (level.xMax);
 
 		// Instantiate both vertical walls (one on each side).
 		InstantiateVerticalOuterWall (leftEdgeX, bottomEdgeY, topEdgeY);

@@ -5,6 +5,10 @@ public class Gun : MonoBehaviour {
 
 	float baseXScale;
 
+	public Sprite gunImage;
+	public Sprite gunFlippedImage;
+	public bool flipped; 
+
 	public bool isAuto;
 
 	public int bulletsPerShot;
@@ -25,12 +29,19 @@ public class Gun : MonoBehaviour {
 	{
 		fireRateCounter = fireRate;
 		baseXScale = transform.localScale.x;
+		flipped = false;
 	}
 
 	void Update ()
 	{
 		fireRateCounter += Time.deltaTime;
 		HandleInput ();
+		LookAtMouse ();
+
+		if (flipped)
+			GetComponent<SpriteRenderer> ().sprite = gunFlippedImage;
+		else if (!flipped)
+			GetComponent<SpriteRenderer> ().sprite = gunImage;
 	}
 
 	void HandleInput ()
@@ -45,8 +56,6 @@ public class Gun : MonoBehaviour {
 			if (Input.GetButtonDown ("Fire") && fireRateCounter >= fireRate)
 				Shoot ();
 		}
-
-		LookAtMouse ();
 	}
 
 	void LookAtMouse()
@@ -55,12 +64,14 @@ public class Gun : MonoBehaviour {
 		mousePos = Camera.main.ScreenToWorldPoint (mousePos);
 
 		//Get rotation in radians
-		float rotation = Mathf.Atan2 (mousePos.y - transform.position.y, mousePos.x - transform.position.x);
+		float rotation = transform.eulerAngles.z;
+		
+		rotation = Mathf.Atan2 (mousePos.y - transform.position.y, mousePos.x - transform.position.x);
 
 		//Convert to degrees
-		rotation *= (180 / Mathf.PI);
+		rotation *= Mathf.Rad2Deg;
 
-		transform.rotation = Quaternion.Euler (0, 0, rotation);
+		transform.rotation = Quaternion.Euler (transform.eulerAngles.x, transform.eulerAngles.y, rotation);
 	}
 
 	public void Shoot ()
