@@ -103,24 +103,37 @@ public class Corridor
 		// We clamp the length of the corridor to make sure it doesn't go off the board.
 		corridorLength = Mathf.Clamp (corridorLength, 1, maxLength);
 
-		SetupAIPathCell ();
+		SetupAIPath ();
 	}
 
-	private void SetupAIPathCell()
+	private void SetupAIPath()
 	{
-		Vector3 cellPos = new Vector3(startXPos, startYPos);
+		float rotation = 0;
+		if (direction == Direction.East || direction == Direction.West)
+			rotation = 90f;
+
+		Vector2 startEndDiff = new Vector2 (Mathf.Abs (startXPos - EndPositionX), Mathf.Abs (startYPos - EndPositionY));
+		Vector3 cellPos = Vector3.zero;// = new Vector3 (startXPos + (startEndDiff.x / 2), startYPos + (startEndDiff.y / 2));
 
 		if (direction == Direction.North)
-			cellPos.y += corridorLength / 2;
+			cellPos = new Vector3 (startXPos + (startEndDiff.x / 2), startYPos + (startEndDiff.y / 2));
 		if (direction == Direction.East)
-			cellPos.x += corridorLength / 2;
+			cellPos = new Vector3 (startXPos + (startEndDiff.x / 2), startYPos + (startEndDiff.y / 2));
 		if (direction == Direction.South)
-			cellPos.y -= corridorLength / 2;
+			cellPos = new Vector3 (startXPos + (startEndDiff.x / 2), startYPos - (startEndDiff.y / 2));
 		if (direction == Direction.West)
-			cellPos.x -= corridorLength / 2;
+			cellPos = new Vector3 (startXPos - (startEndDiff.x / 2), startYPos + (startEndDiff.y / 2));
 
-		GameObject cell = GameObject.Instantiate (Resources.Load("AIPathCell", typeof(GameObject)), cellPos, Quaternion.identity) as GameObject;
-		Vector2 startEndDiff = new Vector2 (Mathf.Abs (startXPos - EndPositionX), Mathf.Abs (startYPos - EndPositionY));
-		cell.transform.localScale = new Vector3 ((startEndDiff.x > 1)?startEndDiff.x:1f, (startEndDiff.y > 1)?startEndDiff.y:1, 1f);
+		GameObject cell = GameObject.Instantiate (Resources.Load ("AIPathCell", typeof(GameObject)), cellPos, Quaternion.Euler (0, 0, rotation)) as GameObject;
+		cell.transform.localScale = new Vector3 (1, corridorLength, 1);
+		cell.GetComponent<AIPathCell> ().dir = (int)direction;
+
+		Vector3 door1Pos = new Vector3 (startXPos, startYPos, 0f);
+		GameObject door1 = GameObject.Instantiate (Resources.Load ("AIPathDoor", typeof(GameObject)), door1Pos, Quaternion.identity) as GameObject;
+		door1.transform.localScale = new Vector3 (1.25f, 1.25f, 0f);
+
+		Vector3 door2Pos = new Vector3(EndPositionX, EndPositionY, 0f);
+		GameObject door2 = GameObject.Instantiate (Resources.Load ("AIPathDoor", typeof(GameObject)), door2Pos, Quaternion.identity) as GameObject;
+		door2.transform.localScale = new Vector3 (1.25f, 1.25f, 0f);
 	}
 }

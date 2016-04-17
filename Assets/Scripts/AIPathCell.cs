@@ -7,6 +7,8 @@ public class AIPathCell : MonoBehaviour
 	[HideInInspector]
 	public List<GameObject> doors = new List<GameObject>();
 
+	public float dir = -1;
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "AIPathDoor") 
