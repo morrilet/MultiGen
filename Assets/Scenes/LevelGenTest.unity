@@ -1764,7 +1764,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294966783
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1978,9 +1978,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 145744, guid: 16066d11e0bc9e742931ffec723e703c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 11484762, guid: 9e8ca1d2659715740b92da52529dd77b, type: 2}
+      propertyPath: sightLayerMask.m_Bits
+      value: 1280
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e8ca1d2659715740b92da52529dd77b, type: 2}
@@ -2024,56 +2024,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 128130, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 172298, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 140208, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 454030, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 498016, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 466734, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 486170, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11494210, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 121734, guid: d8d528524c0eb504db5d99a6a6a59e67, type: 2}
     - target: {fileID: 129646, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11494210, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: shootSound
-      value: shot 1 (uncharged)
+    - target: {fileID: 21254154, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11484388, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: currentCharacter
-      value: 1
+    - target: {fileID: 21254154, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1567352493
       objectReference: {fileID: 0}
-    - target: {fileID: 461650, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11494210, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2031708661
@@ -2118,31 +2081,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aa7fc82929055749be91c76c05d6d5a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2142482706 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 172298, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-  m_PrefabInternal: {fileID: 1646373096}
---- !u!114 &2142482708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2142482706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0637a19fcaf3b2a448eabe24002aca35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunImage: {fileID: 21300000, guid: e2981ea4e213f42428252b6c16ca34df, type: 3}
-  gunFlippedImage: {fileID: 21300000, guid: dd817cc4912df004a8b8377e932341fb, type: 3}
-  flipped: 0
-  isAuto: 0
-  bulletsPerShot: 0
-  fireRate: 0
-  fireRateCounter: 0
-  rotationDeviation: 0
-  bulletSpeedDeviation: 0
-  bulletPrefab: {fileID: 121734, guid: d8d528524c0eb504db5d99a6a6a59e67, type: 2}
-  muzzleFlash: {fileID: 0}
-  shootSound: 
-  bulletSpeed: 12

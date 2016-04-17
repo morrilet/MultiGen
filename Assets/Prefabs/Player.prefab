@@ -30,7 +30,7 @@ GameObject:
   - 50: {fileID: 5068708}
   - 61: {fileID: 6176238}
   - 95: {fileID: 9565424}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -64,6 +64,7 @@ GameObject:
   - 4: {fileID: 454030}
   - 212: {fileID: 21248964}
   - 114: {fileID: 11475362}
+  - 114: {fileID: 11421412}
   m_Layer: 0
   m_Name: Bee Gun
   m_TagString: Untagged
@@ -199,6 +200,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11421412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0637a19fcaf3b2a448eabe24002aca35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunImage: {fileID: 21300000, guid: e2981ea4e213f42428252b6c16ca34df, type: 3}
+  gunFlippedImage: {fileID: 21300000, guid: dd817cc4912df004a8b8377e932341fb, type: 3}
+  flipped: 0
+  isAuto: 0
+  bulletsPerShot: 0
+  fireRate: 0
+  fireRateCounter: 0
+  rotationDeviation: 0
+  bulletSpeedDeviation: 0
+  bulletPrefab: {fileID: 121734, guid: d8d528524c0eb504db5d99a6a6a59e67, type: 2}
+  muzzleFlash: {fileID: 0}
+  shootSound: 
+  bulletSpeed: 12
 --- !u!114 &11433108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,7 +335,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -15650163
+  m_SortingLayerID: -1155124783
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 76d967dbd12f68e41ab381b525b04a39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -370,7 +395,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -15650163
+  m_SortingLayerID: -1155124783
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e2981ea4e213f42428252b6c16ca34df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -400,7 +425,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2147013051
+  m_SortingLayerID: -1567352493
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1156436cc8505f048ae5a8b422561a43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -430,7 +455,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -15650163
+  m_SortingLayerID: -1155124783
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aac1c286d223f4a4b971f6649295f27a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -442,7 +467,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129646}

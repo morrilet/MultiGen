@@ -4,14 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Player
   - AIPathDoor
   - AIPathCell
   - Wall
   - Enemy
-<<<<<<< HEAD
-=======
-  - Bullet
->>>>>>> origin/master
   layers:
   - Default
   - TransparentFX
@@ -21,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - AIPath
   - Player
+  - AIPath
   - Wall
   - Bullet
   - 
@@ -50,17 +47,17 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Enemy
-    uniqueID: 670297619
+    uniqueID: 2675849161
     locked: 0
   - name: Pickup
-    uniqueID: 2394067613
+    uniqueID: 1468239103
     locked: 0
   - name: Player
-    uniqueID: 2147013051
+    uniqueID: 2727614803
     locked: 0
   - name: Gun
-    uniqueID: 4279317133
+    uniqueID: 3139842513
     locked: 0
   - name: Particles
-    uniqueID: 177313901
+    uniqueID: 2482256761
     locked: 0
