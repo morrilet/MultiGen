@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour {
 
 	public string shootSound;
 
+	public Vector3 bulletOffset;
 	//Bullet data
 	public float bulletSpeed;
 
@@ -94,7 +95,7 @@ public class Gun : MonoBehaviour {
 		Quaternion rotationHolder = new Quaternion ();
 		rotationHolder.eulerAngles = new Vector3 (0, 0, Random.Range (-rotationDeviation, rotationDeviation) + transform.rotation.eulerAngles.z);
 
-		GameObject bullet = Instantiate (bulletPrefab, transform.position, rotationHolder) as GameObject;
+		GameObject bullet = Instantiate (bulletPrefab, transform.position + bulletOffset, rotationHolder) as GameObject;
 
 		//Pass Parameters to instantiated bullet
 		bullet.GetComponent<Bullet> ().bulletSpeed = bulletSpeed + Random.Range(-bulletSpeedDeviation, bulletSpeedDeviation);

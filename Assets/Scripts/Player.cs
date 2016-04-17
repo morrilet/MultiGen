@@ -63,8 +63,6 @@ public class Player : Entity
 			gun.GetComponent<Gun> ().flipped = true;
 		else
 			gun.GetComponent<Gun> ().flipped = false;
-
-		Debug.Log (gunRotation);
 	}
 
 	void UpdateMovement()

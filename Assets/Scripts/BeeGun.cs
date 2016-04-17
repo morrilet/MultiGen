@@ -28,14 +28,14 @@ public class BeeGun : Gun
 		{
 			beesInGun = 1;
 		}
-		if (Input.GetButton ("Fire"))
+		if (Input.GetButton ("Fire") && beesInGun <= 30)
 		{
 			if (addBeeCounter >= .4f)
 			{
-				beesInGun++;
+				beesInGun += 2;
 				addBeeCounter = 0;
 				rotationDeviation += 1.5f;
-				bulletSpeedDeviation += 1.5f;
+				bulletSpeedDeviation += .4f;
 			}
 		}
 		if (Input.GetButtonUp ("Fire"))
