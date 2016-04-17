@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class AudioManager : Singleton<AudioManager> 
 {
 	public AudioClip[] effects;
+	public AudioClip[] lemmyFootstep;
+	public AudioClip[] lemmyBeegun;
 	public AudioClip[] music;
 
 	public AudioSource musicSource;
@@ -56,5 +60,11 @@ public class AudioManager : Singleton<AudioManager>
 				effectSource.PlayOneShot (effects [i]);
 			}
 		}
+	}
+
+	public void PlayRandomFromList(AudioClip[] fxList)
+	{
+		AudioClip randomClip = fxList [Random.Range (0, fxList.Length)];
+		PlaySoundEffect (randomClip.name.ToString());
 	}
 }

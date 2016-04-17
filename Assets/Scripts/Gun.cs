@@ -82,8 +82,9 @@ public class Gun : MonoBehaviour {
 	public virtual void Shoot (int bulletsToInstantiate)
 	{
 //		Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.05f, .1f);
-//		if(shootSound != null)
-//			AudioManager.instance.PlaySoundEffectVariation(shootSound, 1, 3);
+		if(shootSound != null)
+			AudioManager.instance.PlayRandomFromList(AudioManager.instance.lemmyBeegun);
+		
 		fireRateCounter = 0;
 		for (int i = 0; i < bulletsToInstantiate; i++)
 		{
