@@ -46,10 +46,12 @@ MonoBehaviour:
   isAuto: 1
   bulletsPerShot: 1
   fireRate: 0.25
+  fireRateCounter: 0
   rotationDeviation: 6
   bulletSpeedDeviation: 1
   bulletPrefab: {fileID: 121734, guid: d8d528524c0eb504db5d99a6a6a59e67, type: 2}
   muzzleFlash: {fileID: 0}
+  shootSound: shot 1 (uncharged)
   bulletSpeed: 12
 --- !u!212 &21221472
 SpriteRenderer:
@@ -87,7 +89,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: shootSound
+      value: shot 1 (uncharged)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186076}

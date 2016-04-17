@@ -27,7 +27,7 @@ public class Player : Entity
 		revolver = transform.FindChild ("Revolver").gameObject;
 		airGun = transform.FindChild ("HairDryerGun").gameObject;
 
-		UpdateCharacter();
+		UpdateCharacter(currentCharacter);
 	}
 
 	void Update ()
@@ -39,7 +39,7 @@ public class Player : Entity
 		if (Input.GetKeyDown (KeyCode.Keypad3))
 			currentCharacter = 3;
 		
-		UpdateCharacter ();
+		UpdateCharacter (currentCharacter);
 		UpdateMovement ();
 		FlipGun ();
 	}
@@ -76,11 +76,11 @@ public class Player : Entity
 		animator.SetFloat ("Speed", Mathf.Abs (velocity.magnitude));
 	}
 
-	void UpdateCharacter()
+	void UpdateCharacter(int characterToSwitchTo)
 	{
 		animator.SetInteger ("Character", currentCharacter);
 
-		switch (currentCharacter)
+		switch (characterToSwitchTo)
 		{
 		case 1://Lemmy
 			activeGun = beeGun;
