@@ -33,13 +33,12 @@ public class Player : Entity
 	void Update ()
 	{
 		if (Input.GetKeyDown (KeyCode.Keypad1))
-			currentCharacter = 1;
+			UpdateCharacter(1);
 		if (Input.GetKeyDown (KeyCode.Keypad2))
-			currentCharacter = 2;
+			UpdateCharacter (2);
 		if (Input.GetKeyDown (KeyCode.Keypad3))
-			currentCharacter = 3;
+			UpdateCharacter (3);
 		
-		UpdateCharacter (currentCharacter);
 		UpdateMovement ();
 		FlipGun ();
 	}
@@ -76,10 +75,12 @@ public class Player : Entity
 		animator.SetFloat ("Speed", Mathf.Abs (velocity.magnitude));
 	}
 
-	void UpdateCharacter(int characterToSwitchTo)
+	public void UpdateCharacter(int characterToSwitchTo)
 	{
-		animator.SetInteger ("Character", currentCharacter);
+		GameObject poof = Instantiate (Resources.Load ("Poof", typeof(GameObject)), transform.position, Quaternion.identity) as GameObject;
+		poof.transform.parent = transform;
 
+		animator.SetInteger ("Character", characterToSwitchTo);
 		switch (characterToSwitchTo)
 		{
 		case 1://Lemmy
@@ -92,12 +93,16 @@ public class Player : Entity
 		case 2://Cordulator
 			activeGun = airGun;
 
+			poof.transform.GetComponent<ParticleSystem> ().startColor = new Color(141, 58, 153);
+
 			airGun.SetActive(true);
 			revolver.SetActive(false);
 			beeGun.SetActive(false);
 			break;
 		case 3://Francus
 			activeGun = revolver;
+
+			poof.transform.GetComponent<ParticleSystem> ().startColor = new Color(85, 170, 0);
 
 			revolver.SetActive(true);
 			beeGun.SetActive(false);

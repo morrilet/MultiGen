@@ -80,7 +80,8 @@ public class Gun : MonoBehaviour {
 	public virtual void Shoot (int bulletsToInstantiate)
 	{
 //		Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.05f, .1f);
-		AudioManager.instance.PlaySoundEffectVariation(shootSound, 1, 3);
+//		if(shootSound != null)
+//			AudioManager.instance.PlaySoundEffectVariation(shootSound, 1, 3);
 		fireRateCounter = 0;
 		for (int i = 0; i < bulletsToInstantiate; i++)
 		{
