@@ -23,6 +23,8 @@ public class Player : Entity
 			animator.SetInteger ("Character", 1);
 		if (Input.GetKeyDown (KeyCode.Keypad2))
 			animator.SetInteger ("Character", 2);
+		if (Input.GetKeyDown (KeyCode.Keypad3))
+			animator.SetInteger ("Character", 3);
 
 		UpdateMovement ();
 		FlipGun ();
