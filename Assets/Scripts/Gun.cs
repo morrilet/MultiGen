@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour {
 	public Vector3 bulletOffset;
 	//Bullet data
 	public float bulletSpeed;
+	public float damage;
 
 	public virtual void Start()
 	{
@@ -100,6 +101,7 @@ public class Gun : MonoBehaviour {
 		//Pass Parameters to instantiated bullet
 		bullet.GetComponent<Bullet> ().bulletSpeed = bulletSpeed + Random.Range(-bulletSpeedDeviation, bulletSpeedDeviation);
 		bullet.GetComponent<Bullet> ().bulletSpeedDeviation = bulletSpeedDeviation;
+		bullet.GetComponent<Bullet> ().damage = damage;
 
 		Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), transform.parent.GetComponent<Collider2D> ());
 	}

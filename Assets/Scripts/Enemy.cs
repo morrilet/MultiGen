@@ -70,4 +70,22 @@ public class Enemy : Entity
 
 		stateMachine.SetBool ("playerInSight", playerInSight);
 	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "Bullet")
+		{
+			health -= other.gameObject.GetComponent<Bullet> ().damage;
+
+			if (health <= 0)
+			{
+				Die ();
+			}
+		}
+	}
+
+	void Die()
+	{
+		Destroy (gameObject);
+	}
 }

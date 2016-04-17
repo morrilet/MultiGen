@@ -4,7 +4,8 @@ using System.Collections;
 public class Entity : MonoBehaviour
 {
 	public float maxHealth;
-	float health;
+	[HideInInspector]
+	public float health;
 
 	public virtual void Awake ()
 	{
