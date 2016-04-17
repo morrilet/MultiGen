@@ -3,9 +3,14 @@ using System.Collections;
 
 public class GameManager : Singleton<GameManager>
 {
+
+	public bool isPaused;
+	public bool isPausedPrevious;
+
 	public override void Awake()
 	{
 		isPersistant = true;
+		isPaused = false;
 		base.Awake();
 	}
 
@@ -16,7 +21,11 @@ public class GameManager : Singleton<GameManager>
 
 	void Update () 
 	{
-
+		if (Input.GetKeyDown (KeyCode.Escape)) 
+		{
+			isPaused = (isPaused) ? false : true;
+		}
+		isPausedPrevious = isPaused;
 	}
 		
 	public void Sleep(int framesOfSleep)

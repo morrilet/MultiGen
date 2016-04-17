@@ -32,15 +32,18 @@ public class Player : Entity
 
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.Keypad1))
-			UpdateCharacter(1);
-		if (Input.GetKeyDown (KeyCode.Keypad2))
-			UpdateCharacter (2);
-		if (Input.GetKeyDown (KeyCode.Keypad3))
-			UpdateCharacter (3);
+		if (!GameManager.instance.isPaused) 
+		{
+			if (Input.GetKeyDown (KeyCode.Keypad1))
+				UpdateCharacter (1);
+			if (Input.GetKeyDown (KeyCode.Keypad2))
+				UpdateCharacter (2);
+			if (Input.GetKeyDown (KeyCode.Keypad3))
+				UpdateCharacter (3);
 		
-		UpdateMovement ();
-		FlipGun ();
+			UpdateMovement ();
+			FlipGun ();
+		}
 	}
 
 	void OnCollisionStay2D(Collision2D other)

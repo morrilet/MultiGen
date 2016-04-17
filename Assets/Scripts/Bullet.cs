@@ -25,7 +25,10 @@ public class Bullet : MonoBehaviour {
 
 	public virtual void Update () 
 	{
-		transform.position += bulletSpeed * transform.right * Time.deltaTime;
+		if (!GameManager.instance.isPaused) 
+		{
+			transform.position += bulletSpeed * transform.right * Time.deltaTime;
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)

@@ -39,14 +39,17 @@ public class Gun : MonoBehaviour {
 
 	public virtual void Update ()
 	{
-		fireRateCounter += Time.deltaTime;
-		HandleInput ();
-		LookAtMouse ();
+		if (!GameManager.instance.isPaused)
+		{
+			fireRateCounter += Time.deltaTime;
+			HandleInput ();
+			LookAtMouse ();
 
-		if (flipped)
-			GetComponent<SpriteRenderer> ().sprite = gunFlippedImage;
-		else if (!flipped)
-			GetComponent<SpriteRenderer> ().sprite = gunImage;
+			if (flipped)
+				GetComponent<SpriteRenderer> ().sprite = gunFlippedImage;
+			else if (!flipped)
+				GetComponent<SpriteRenderer> ().sprite = gunImage;
+		}
 	}
 
 	public virtual void HandleInput ()

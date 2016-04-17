@@ -23,8 +23,11 @@ public class Enemy : Entity
 
 	void Update()
 	{
-		GetDistanceToPlayer ();
-		GetPlayerInSight ();
+		if (!GameManager.instance.isPaused) 
+		{
+			GetDistanceToPlayer ();
+			GetPlayerInSight ();
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
