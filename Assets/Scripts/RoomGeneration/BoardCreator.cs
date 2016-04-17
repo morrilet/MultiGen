@@ -31,6 +31,9 @@ public class BoardCreator : MonoBehaviour
 	private Level level;
 	private GameObject player;
 
+	int vialsToSpawn;
+	int vialsSpawned;
+
 	private void Start ()
 	{
 		// Create the board holder.
@@ -49,6 +52,8 @@ public class BoardCreator : MonoBehaviour
 
 		InstantiateTiles ();
 		InstantiateOuterWalls ();
+
+		//vialsToSpawn = 3;
 	}
 
 
@@ -84,6 +89,9 @@ public class BoardCreator : MonoBehaviour
 		// Setup the first room, there is no previous corridor so we do not use one.
 		rooms[0].SetupRoom(roomWidth, roomHeight, columns, rows);
 
+		Vector3 playerPos = new Vector3 (rooms[0].xPos, rooms[0].yPos, 0);
+		player.transform.position = playerPos;
+
 		// Setup the first corridor using the first room.
 		corridors[0].SetupCorridor(rooms[0], corridorLength, roomWidth, roomHeight, columns, rows, true);
 
@@ -95,6 +103,11 @@ public class BoardCreator : MonoBehaviour
 			// Setup the room based on the previous corridor.
 			rooms[i].SetupRoom (roomWidth, roomHeight, columns, rows, corridors[i - 1]);
 
+			if (Random.Range (0, 8) == 1) 
+			{
+				rooms [i].AddVial ();
+			}
+
 			// If we haven't reached the end of the corridors array...
 			if (i < corridors.Length)
 			{
@@ -104,14 +117,7 @@ public class BoardCreator : MonoBehaviour
 				// Setup the corridor based on the room that was just created.
 				corridors[i].SetupCorridor(rooms[i], corridorLength, roomWidth, roomHeight, columns, rows, false);
 			}
-
-			if (i == (int)(rooms.Length *.5f))
-			{
-				Vector3 playerPos = new Vector3 (rooms[i].xPos, rooms[i].yPos, 0);
-				player.transform.position = playerPos;
-			}
 		}
-
 	}
 
 
