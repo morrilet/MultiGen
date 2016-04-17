@@ -77,6 +77,20 @@ public class Room
 		}
 
 		SetupAIPathCell ();
+		PlaceEnemies ();
+	}
+
+	private void PlaceEnemies()
+	{
+		enemyCount = Random.Range (0, 2);
+		enemyLocations = new Vector2[enemyCount];
+		for (int i = 0; i < enemyLocations.Length; i++)
+		{
+			enemyLocations [i].x = Random.Range (xPos, xPos + roomWidth);
+			enemyLocations [i].y = Random.Range (yPos, yPos + roomHeight);
+
+			GameObject enemy = GameObject.Instantiate (Resources.Load("Enemy", typeof(GameObject)), enemyLocations[i], Quaternion.identity) as GameObject;
+		}
 	}
 
 	private void SetupAIPathCell()

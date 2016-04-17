@@ -10,6 +10,9 @@ GameObject:
   - 4: {fileID: 432584}
   - 212: {fileID: 21254014}
   - 95: {fileID: 9518532}
+  - 61: {fileID: 6117460}
+  - 114: {fileID: 11476340}
+  - 114: {fileID: 11485650}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -29,6 +32,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6117460
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145744}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.175}
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.65}
 --- !u!95 &9518532
 Animator:
   serializedVersion: 3
@@ -46,6 +63,32 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11476340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15134fdd6e511cc4297a0cfb6eb31b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCell: {fileID: 0}
+  goalDoor: {fileID: 0}
+  shortestPathSoFar: 0
+  randomizeCourseVector: {x: 0, y: 0, z: 0}
+--- !u!114 &11485650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145744}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764417d0a9f140a46abe6e6d680ab81d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21254014
 SpriteRenderer:
   m_ObjectHideFlags: 1

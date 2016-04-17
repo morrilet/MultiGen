@@ -8,6 +8,9 @@ public class Player : Entity
 	Rigidbody2D rb;
 	Animator animator;
 
+	[HideInInspector]
+	public GameObject currentCell;
+
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody2D> ();
@@ -23,6 +26,14 @@ public class Player : Entity
 
 		UpdateMovement ();
 		FlipGun ();
+	}
+
+	void OnCollisionStay2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "AIPathCell") 
+		{
+			currentCell = other.gameObject;
+		}
 	}
 
 	void FlipGun()
