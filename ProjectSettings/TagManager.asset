@@ -18,7 +18,7 @@ TagManager:
   - 
   - AIPath
   - Player
-  - 
+  - Wall
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Gun
     uniqueID: 4279317133
+    locked: 0
+  - name: Particles
+    uniqueID: 177313901
     locked: 0
