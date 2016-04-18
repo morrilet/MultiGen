@@ -198,7 +198,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersistant: 0
-  effects: []
+  effects:
+  - {fileID: 8300000, guid: 71c9eb91e8e7adb4cb928b4ac9dc50b2, type: 3}
+  - {fileID: 8300000, guid: a937f1880933b8d468ce403e7ecda889, type: 3}
+  - {fileID: 8300000, guid: dd1cca110115d2148a14452a8623a734, type: 3}
+  - {fileID: 8300000, guid: 7df74945eac35dd4291f61310a961cbf, type: 3}
+  - {fileID: 8300000, guid: b435e50bebc68794bab2cf18cfc18b55, type: 3}
+  - {fileID: 8300000, guid: 69b63c15cf0dd0547aecaab09a9df054, type: 3}
+  lemmyFootstep: []
+  lemmyBeegun:
+  - {fileID: 8300000, guid: 71c9eb91e8e7adb4cb928b4ac9dc50b2, type: 3}
+  - {fileID: 8300000, guid: a937f1880933b8d468ce403e7ecda889, type: 3}
+  - {fileID: 8300000, guid: dd1cca110115d2148a14452a8623a734, type: 3}
+  - {fileID: 8300000, guid: 7df74945eac35dd4291f61310a961cbf, type: 3}
+  - {fileID: 8300000, guid: b435e50bebc68794bab2cf18cfc18b55, type: 3}
+  - {fileID: 8300000, guid: 69b63c15cf0dd0547aecaab09a9df054, type: 3}
   music: []
   musicSource: {fileID: 8294470}
   effectSource: {fileID: 8222912}

@@ -52,7 +52,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 121734, guid: d8d528524c0eb504db5d99a6a6a59e67, type: 2}
   muzzleFlash: {fileID: 0}
   shootSound: 
+  bulletOffset: {x: 0, y: 0, z: 0}
   bulletSpeed: 18
+  damage: 5
 --- !u!212 &21268900
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -97,6 +99,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
       value: -1155124783
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
