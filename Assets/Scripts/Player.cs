@@ -35,14 +35,9 @@ public class Player : Entity
 	{
 		if (!GameManager.instance.isPaused) 
 		{
-			if (Input.GetKeyDown (KeyCode.Keypad1))
-				SwitchCharacter (1);
-			if (Input.GetKeyDown (KeyCode.Keypad2))
-				SwitchCharacter (2);
-			if (Input.GetKeyDown (KeyCode.Keypad3))
-				SwitchCharacter (3);
-			if(!GameManager.instance.isPaused)
-				UpdateMovement ();
+			if (health > maxHealth)
+				health = maxHealth;
+			UpdateMovement ();
 			FlipGun ();
 		}
 	}
@@ -51,6 +46,7 @@ public class Player : Entity
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer ("EnemyBullet")) 
 		{
+			Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.2f, .5f);
 			health -= other.gameObject.GetComponent<EnemyBullet> ().damage;
 		}
 	}
@@ -60,6 +56,11 @@ public class Player : Entity
 		if (other.gameObject.tag == "AIPathCell") 
 		{
 			currentCell = other.gameObject;
+
+			if (health <= 0)
+			{
+				Die ();
+			}
 		}
 	}
 
@@ -123,5 +124,9 @@ public class Player : Entity
 			airGun.SetActive(false);
 			break;
 		}
+	}
+
+	void Die()
+	{
 	}
 }
