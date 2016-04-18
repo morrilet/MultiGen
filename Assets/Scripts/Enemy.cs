@@ -10,7 +10,8 @@ public class Enemy : Entity
 
 	public GameObject currentCell;
 
-	EnemyGun gun;
+	[HideInInspector]
+	public EnemyGun gun;
 
 	float distanceToPlayer;
 	bool playerInSight;

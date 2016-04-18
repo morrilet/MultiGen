@@ -11,8 +11,6 @@ public class EnemyGun : MonoBehaviour
 
 	public bool isAuto;
 
-	public int bulletsPerShot;
-
 	public float fireRate;
 	[HideInInspector]
 	public float fireRateCounter;
@@ -21,7 +19,6 @@ public class EnemyGun : MonoBehaviour
 	public float bulletSpeedDeviation;
 
 	public GameObject bulletPrefab;
-	public GameObject muzzleFlash;
 
 	public string shootSound;
 
@@ -42,17 +39,12 @@ public class EnemyGun : MonoBehaviour
 		if (!GameManager.instance.isPaused)
 		{
 			fireRateCounter += Time.deltaTime;
-			HandleInput ();
 
 			if (flipped)
 				GetComponent<SpriteRenderer> ().sprite = gunFlippedImage;
 			else if (!flipped)
 				GetComponent<SpriteRenderer> ().sprite = gunImage;
 		}
-	}
-
-	public virtual void HandleInput ()
-	{
 	}
 
 	public void LookAtTarget(GameObject target)
@@ -88,9 +80,9 @@ public class EnemyGun : MonoBehaviour
 		GameObject bullet = Instantiate (bulletPrefab, transform.position + bulletOffset, rotationHolder) as GameObject;
 
 		//Pass Parameters to instantiated bullet
-		bullet.GetComponent<Bullet> ().bulletSpeed = bulletSpeed + Random.Range(-bulletSpeedDeviation, bulletSpeedDeviation);
-		bullet.GetComponent<Bullet> ().bulletSpeedDeviation = bulletSpeedDeviation;
-		bullet.GetComponent<Bullet> ().damage = damage;
+		bullet.GetComponent<EnemyBullet> ().bulletSpeed = bulletSpeed + Random.Range(-bulletSpeedDeviation, bulletSpeedDeviation);
+		bullet.GetComponent<EnemyBullet> ().bulletSpeedDeviation = bulletSpeedDeviation;
+		bullet.GetComponent<EnemyBullet> ().damage = damage;
 
 		Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), transform.parent.GetComponent<Collider2D> ());
 	}
