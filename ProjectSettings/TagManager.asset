@@ -9,6 +9,7 @@ TagManager:
   - AIPathCell
   - Wall
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -22,9 +23,9 @@ TagManager:
   - AIPath
   - Wall
   - Bullet
-  - 
-  - 
-  - 
+  - EnemyBullet
+  - Player
+  - Enemy
   - 
   - 
   - 

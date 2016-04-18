@@ -78,6 +78,12 @@ MonoBehaviour:
   damage: 0
   sleepFramesOnHit: 0
   startPos: {x: 0, y: 0, z: 0}
+  ignoreCollisionMask:
+    serializedVersion: 2
+    m_Bits: 256
+  checkCollisionMask:
+    serializedVersion: 2
+    m_Bits: 16384
   frequency: 20
   magnitude: 0.5
 --- !u!212 &21274486
@@ -124,6 +130,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ignoreCollisionMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: checkCollisionMask.m_Bits
+      value: 16384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
