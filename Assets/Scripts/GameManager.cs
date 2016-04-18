@@ -7,9 +7,12 @@ public class GameManager : Singleton<GameManager>
 	public bool isPaused;
 	public bool isPausedPrevious;
 
-	int currentLevel;
-	int currentCharacter;
-	float playerHealth;
+	[HideInInspector]
+	public int currentLevel;
+	[HideInInspector]
+	public int currentCharacter;
+	[HideInInspector]
+	public float playerHealth;
 
 	public override void Awake()
 	{
@@ -20,7 +23,9 @@ public class GameManager : Singleton<GameManager>
 
 	void Start ()
 	{
-		
+		currentCharacter = 1;
+		playerHealth = GameObject.FindWithTag ("Player").GetComponent<Player> ().health;
+		currentLevel = 1;
 	}
 
 	void Update () 

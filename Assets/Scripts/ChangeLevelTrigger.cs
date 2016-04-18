@@ -8,6 +8,9 @@ public class ChangeLevelTrigger : MonoBehaviour
 	{
 		if (other.tag == "Player") 
 		{
+			GameManager.instance.currentLevel++;
+			GameManager.instance.currentCharacter = other.GetComponent<Player> ().currentCharacter;
+			GameManager.instance.playerHealth = other.GetComponent<Player> ().health;
 			SceneManager.LoadScene ("LevelGenTest", LoadSceneMode.Single);
 		}
 	}

@@ -27,7 +27,8 @@ public class Player : Entity
 		revolver = transform.FindChild ("Revolver").gameObject;
 		airGun = transform.FindChild ("HairDryerGun").gameObject;
 
-		SwitchCharacter(currentCharacter);
+		SwitchCharacter(GameManager.instance.currentCharacter);
+		health = GameManager.instance.playerHealth;
 	}
 
 	void Update ()
@@ -43,6 +44,14 @@ public class Player : Entity
 			if(!GameManager.instance.isPaused)
 				UpdateMovement ();
 			FlipGun ();
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.layer == LayerMask.NameToLayer ("EnemyBullet")) 
+		{
+			health -= other.gameObject.GetComponent<EnemyBullet> ().damage;
 		}
 	}
 
