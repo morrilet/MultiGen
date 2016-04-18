@@ -10,6 +10,8 @@ public class Enemy : Entity
 
 	public GameObject currentCell;
 
+	EnemyGun gun;
+
 	float distanceToPlayer;
 	bool playerInSight;
 
@@ -18,6 +20,7 @@ public class Enemy : Entity
 	void Start()
 	{
 		player = GameObject.Find ("Player").GetComponent<Player> ();
+		gun = transform.FindChild ("Gun").gameObject.GetComponent<EnemyGun> ();
 		currentCell = null;
 	}
 
@@ -28,6 +31,21 @@ public class Enemy : Entity
 			GetDistanceToPlayer ();
 			GetPlayerInSight ();
 		}
+
+		gun.LookAtTarget (player.gameObject);
+		FlipGun ();
+	}
+
+	void FlipGun()
+	{
+		float gunRotation = gun.transform.eulerAngles.z;
+		if (gunRotation > 180)
+			gunRotation = Mathf.Abs(360 - gun.transform.eulerAngles.z);
+
+		if (gunRotation > 90)
+			gun.flipped = true;
+		else
+			gun.flipped = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
