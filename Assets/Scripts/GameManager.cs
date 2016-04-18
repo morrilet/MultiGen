@@ -7,6 +7,10 @@ public class GameManager : Singleton<GameManager>
 	public bool isPaused;
 	public bool isPausedPrevious;
 
+	int currentLevel;
+	int currentCharacter;
+	float playerHealth;
+
 	public override void Awake()
 	{
 		isPersistant = true;

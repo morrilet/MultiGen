@@ -40,8 +40,8 @@ public class Player : Entity
 				SwitchCharacter (2);
 			if (Input.GetKeyDown (KeyCode.Keypad3))
 				SwitchCharacter (3);
-			
-			UpdateMovement ();
+			if(!GameManager.instance.isPaused)
+				UpdateMovement ();
 			FlipGun ();
 		}
 	}
@@ -70,10 +70,14 @@ public class Player : Entity
 
 	void UpdateMovement()
 	{
-		Vector2 velocity = new Vector2 (Mathf.Lerp(0, Input.GetAxis("Horizontal") * speed, Time.deltaTime),
-			Mathf.Lerp(0, Input.GetAxis("Vertical") * speed, Time.deltaTime));
-		rb.velocity = velocity;
-		animator.SetFloat ("Speed", Mathf.Abs (velocity.magnitude));
+		if (!GameManager.instance.isPaused)
+		{
+			Vector2 velocity = new Vector2 (Mathf.Lerp (0, Input.GetAxis ("Horizontal") * speed, Time.deltaTime),
+				               Mathf.Lerp (0, Input.GetAxis ("Vertical") * speed, Time.deltaTime));
+			rb.velocity = velocity;
+			animator.SetFloat ("Speed", Mathf.Abs (velocity.magnitude));
+		}
+
 	}
 
 	public void SwitchCharacter(int characterToSwitchTo)
