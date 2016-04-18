@@ -219,7 +219,7 @@ MonoBehaviour:
   fireRateCounter: 0
   rotationDeviation: 3
   bulletSpeedDeviation: 0
-  bulletPrefab: {fileID: 121900, guid: 2a4070f0e86b3c04aaa8ff53f529c58a, type: 2}
+  bulletPrefab: {fileID: 101966, guid: 2a4070f0e86b3c04aaa8ff53f529c58a, type: 2}
   muzzleFlash: {fileID: 0}
   shootSound: 
   bulletOffset: {x: 0, y: 0, z: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cc11857141b604faa50f923f83faa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   health: 0
   speed: 350
   currentCharacter: 1
