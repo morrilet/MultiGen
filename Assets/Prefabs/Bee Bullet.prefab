@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21274486}
   - 61: {fileID: 6155656}
   - 50: {fileID: 5006056}
-  - 114: {fileID: 11472804}
+  - 114: {fileID: 11416578}
   m_Layer: 11
   m_Name: Bee Bullet
   m_TagString: Bullet
@@ -62,7 +62,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &11472804
+--- !u!114 &11416578
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 121734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfce08f8eca70c642a0d12949997c622, type: 3}
+  m_Script: {fileID: 11500000, guid: 075132d968d7a1d459305f3edaf9639e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 0

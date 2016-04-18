@@ -16,14 +16,14 @@ public class Bullet : MonoBehaviour {
 	[HideInInspector]
 	public Vector3 startPos;
 
-	public virtual void Start()
+	public void Start()
 	{
 		startPos = transform.position;
 		bulletSpeed += Random.Range (-1 * bulletSpeedDeviation, bulletSpeedDeviation);
 		Physics2D.IgnoreCollision (GetComponent<Collider2D> (), GameObject.FindGameObjectWithTag ("Player").GetComponent<Collider2D> ());
 	}
 
-	public virtual void Update () 
+	public void Update () 
 	{
 		if (!GameManager.instance.isPaused) 
 		{
