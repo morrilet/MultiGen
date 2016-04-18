@@ -100,6 +100,12 @@ public class Room
 		}
 	}
 
+	public void AddLadder()
+	{
+		Vector2 ladderPos = new Vector2(xPos + (roomWidth * Random.Range(.1f, .9f)), yPos + (roomHeight * Random.Range(.1f, .9f)));
+		GameObject ladder = GameObject.Instantiate(Resources.Load("Ladder", typeof(GameObject)), ladderPos, Quaternion.identity) as GameObject;
+	}
+
 	private void PlaceEnemies()
 	{
 		enemyCount = Random.Range (0, 2);

@@ -8,8 +8,7 @@ public class BoardCreator : MonoBehaviour
 	{
 		Wall, Floor,
 	}
-
-
+		
 	public int columns = 100;                                 // The number of columns on the board (how wide it will be).
 	public int rows = 100;                                    // The number of rows on the board (how tall it will be).
 	public IntRange numRooms = new IntRange (15, 20);         // The range of the number of rooms there can be.
@@ -117,6 +116,9 @@ public class BoardCreator : MonoBehaviour
 				// Setup the corridor based on the room that was just created.
 				corridors[i].SetupCorridor(rooms[i], corridorLength, roomWidth, roomHeight, columns, rows, false);
 			}
+
+			if (i == rooms.Length - 1)
+				rooms [i].AddLadder ();
 		}
 	}
 

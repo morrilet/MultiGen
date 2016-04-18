@@ -241,7 +241,7 @@ MonoBehaviour:
   flipped: 0
   isAuto: 1
   bulletsPerShot: 1
-  fireRate: 0.04
+  fireRate: 0.08
   fireRateCounter: 0
   rotationDeviation: 0
   bulletSpeedDeviation: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   shootSound: 
   bulletOffset: {x: 0, y: 0, z: 0}
   bulletSpeed: 9
-  damage: 0
+  damage: 0.8
 --- !u!114 &11475362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,7 +276,7 @@ MonoBehaviour:
   shootSound: 
   bulletOffset: {x: 0, y: 0, z: 0}
   bulletSpeed: 12
-  damage: 10
+  damage: 0.9
 --- !u!114 &11484388
 MonoBehaviour:
   m_ObjectHideFlags: 1

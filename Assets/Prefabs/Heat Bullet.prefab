@@ -61,7 +61,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.4}
 --- !u!114 &11496220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,12 +78,6 @@ MonoBehaviour:
   damage: 0
   sleepFramesOnHit: 0
   startPos: {x: 0, y: 0, z: 0}
-  ignoreCollisionMask:
-    serializedVersion: 2
-    m_Bits: 256
-  checkCollisionMask:
-    serializedVersion: 2
-    m_Bits: 16384
 --- !u!212 &21235142
 SpriteRenderer:
   m_ObjectHideFlags: 1
