@@ -39,13 +39,13 @@ public class Vial : MonoBehaviour {
 			switch (characterToChangeTo)
 			{
 			case CharacterToChangeTo.Lemmy:
-				other.gameObject.GetComponent<Player> ().UpdateCharacter(1);
+				other.gameObject.GetComponent<Player> ().SwitchCharacter(1);
 				break;
 			case CharacterToChangeTo.Cordulator:
-				other.gameObject.GetComponent<Player> ().UpdateCharacter(2);
+				other.gameObject.GetComponent<Player> ().SwitchCharacter(2);
 				break;
 			case CharacterToChangeTo.Francus:
-				other.gameObject.GetComponent<Player> ().UpdateCharacter (3);
+				other.gameObject.GetComponent<Player> ().SwitchCharacter (3);
 				break;
 			}
 

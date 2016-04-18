@@ -27,7 +27,7 @@ public class Player : Entity
 		revolver = transform.FindChild ("Revolver").gameObject;
 		airGun = transform.FindChild ("HairDryerGun").gameObject;
 
-		UpdateCharacter(currentCharacter);
+		SwitchCharacter(currentCharacter);
 	}
 
 	void Update ()
@@ -35,12 +35,12 @@ public class Player : Entity
 		if (!GameManager.instance.isPaused) 
 		{
 			if (Input.GetKeyDown (KeyCode.Keypad1))
-				UpdateCharacter (1);
+				SwitchCharacter (1);
 			if (Input.GetKeyDown (KeyCode.Keypad2))
-				UpdateCharacter (2);
+				SwitchCharacter (2);
 			if (Input.GetKeyDown (KeyCode.Keypad3))
-				UpdateCharacter (3);
-		
+				SwitchCharacter (3);
+			
 			UpdateMovement ();
 			FlipGun ();
 		}
@@ -76,7 +76,7 @@ public class Player : Entity
 		animator.SetFloat ("Speed", Mathf.Abs (velocity.magnitude));
 	}
 
-	public void UpdateCharacter(int characterToSwitchTo)
+	public void SwitchCharacter(int characterToSwitchTo)
 	{
 		GameObject poof = Instantiate (Resources.Load ("Poof", typeof(GameObject)), transform.position, Quaternion.identity) as GameObject;
 		poof.transform.parent = transform;
@@ -86,7 +86,7 @@ public class Player : Entity
 		{
 		case 1://Lemmy
 			activeGun = beeGun;
-
+			currentCharacter = 1;
 			beeGun.SetActive(true);
 			revolver.SetActive(false);
 			airGun.SetActive(false);
@@ -94,8 +94,8 @@ public class Player : Entity
 		case 2://Cordulator
 			activeGun = airGun;
 
-			poof.transform.GetComponent<ParticleSystem> ().startColor = new Color(141, 58, 153);
-
+			poof.transform.GetComponent<ParticleSystem> ().startColor = new Color (141, 58, 153);
+			currentCharacter = 2;
 			airGun.SetActive(true);
 			revolver.SetActive(false);
 			beeGun.SetActive(false);
@@ -103,8 +103,8 @@ public class Player : Entity
 		case 3://Francus
 			activeGun = revolver;
 
-			poof.transform.GetComponent<ParticleSystem> ().startColor = new Color(85, 170, 0);
-
+			poof.transform.GetComponent<ParticleSystem> ().startColor = new Color (85, 170, 0);
+			currentCharacter = 3;
 			revolver.SetActive(true);
 			beeGun.SetActive(false);
 			airGun.SetActive(false);

@@ -67,4 +67,9 @@ public class AudioManager : Singleton<AudioManager>
 		AudioClip randomClip = fxList [Random.Range (0, fxList.Length)];
 		PlaySoundEffect (randomClip.name.ToString());
 	}
+
+	public void StopMusic()
+	{
+		musicSource.Stop ();
+	}
 }
