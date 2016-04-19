@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameManager : Singleton<GameManager>
@@ -37,6 +38,15 @@ public class GameManager : Singleton<GameManager>
 		isPausedPrevious = isPaused;
 	}
 		
+	public void StartGame()
+	{
+		SceneManager.LoadScene ("LevelGenTest", LoadSceneMode.Single);
+
+		playerHealth = GameObject.FindWithTag ("Player").GetComponent<Player> ().maxHealth;
+		currentCharacter = 1;
+		GameObject.FindWithTag ("Player").GetComponent<Player> ().Start ();
+	}
+
 	public void Sleep(int framesOfSleep)
 	{
 		StartCoroutine (ApplySleep (framesOfSleep));

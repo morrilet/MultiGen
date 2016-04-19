@@ -39,9 +39,12 @@ public class PatrolState : StateMachineBehaviour
 
 	Vector3 FindRandomSpotWithinCurrentCell()
 	{
-		return currentCell.transform.position + (currentCell.transform.rotation * new Vector3(Random.Range(
-			currentCell.transform.localScale.x * -0.5f, currentCell.transform.localScale.x * 0.5f), Random.Range(
-				currentCell.transform.localScale.y * -0.5f, currentCell.transform.localScale.y * 0.5f), 0));
+		if(currentCell != null)
+			return currentCell.transform.position + (currentCell.transform.rotation * new Vector3(Random.Range(
+				currentCell.transform.localScale.x * -0.5f, currentCell.transform.localScale.x * 0.5f), Random.Range(
+					currentCell.transform.localScale.y * -0.5f, currentCell.transform.localScale.y * 0.5f), 0));
+
+		return Vector3.zero;
 	}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state

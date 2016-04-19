@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &125832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 491304}
+  - 114: {fileID: 11471958}
+  - 114: {fileID: 11455534}
+  m_Layer: 0
+  m_Name: BoardCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &491304
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11455534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44103313b9c467141a57ad1004d29977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMin: 0
+  xMax: 0
+  yMin: 0
+  yMax: 0
+--- !u!114 &11471958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a35d4f9caf15d499f9226c14b99083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 50
+  rows: 50
+  numRooms:
+    m_Min: 15
+    m_Max: 20
+  roomWidth:
+    m_Min: 3
+    m_Max: 10
+  roomHeight:
+    m_Min: 3
+    m_Max: 10
+  corridorLength:
+    m_Min: 6
+    m_Max: 10
+  floorTiles:
+  - {fileID: 159536, guid: be428408469be35438bef84fa7a1c135, type: 2}
+  wallTiles:
+  - {fileID: 156446, guid: 96085096a0737ab4a87aa93811f7b4a4, type: 2}
+  outerWallTiles:
+  - {fileID: 156446, guid: 96085096a0737ab4a87aa93811f7b4a4, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 125832}
+  m_IsPrefabParent: 1

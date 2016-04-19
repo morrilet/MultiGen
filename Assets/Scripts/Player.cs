@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Player : Entity
@@ -18,7 +19,12 @@ public class Player : Entity
 	[HideInInspector]
 	public GameObject currentCell;
 
-	void Start ()
+	public override void Awake()
+	{
+		base.Awake();
+	}
+
+	public void Start ()
 	{
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
@@ -35,10 +41,18 @@ public class Player : Entity
 	{
 		if (!GameManager.instance.isPaused) 
 		{
-			if (health > maxHealth)
-				health = maxHealth;
 			UpdateMovement ();
 			FlipGun ();
+		}
+
+		if (health > maxHealth)
+			health = maxHealth;
+		if (health < 0)
+			health = 0;
+		
+		if (health <= 0)
+		{
+			Die ();
 		}
 	}
 
@@ -56,11 +70,6 @@ public class Player : Entity
 		if (other.gameObject.tag == "AIPathCell") 
 		{
 			currentCell = other.gameObject;
-
-			if (health <= 0)
-			{
-				Die ();
-			}
 		}
 	}
 
@@ -128,5 +137,10 @@ public class Player : Entity
 
 	void Die()
 	{
+		GameManager.instance.playerHealth = maxHealth;
+		GameManager.instance.currentCharacter = 1;
+		GameManager.instance.currentLevel = 1;
+
+		SceneManager.LoadScene ("GameOver", LoadSceneMode.Single);
 	}
 }

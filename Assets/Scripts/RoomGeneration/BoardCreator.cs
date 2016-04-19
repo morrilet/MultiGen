@@ -42,15 +42,18 @@ public class BoardCreator : MonoBehaviour
 
 		level = GetComponent<Level> ();
 
-		SetupTilesArray ();
+		if (numRooms.m_Max > 0 && numRooms.m_Min > 0) 
+		{
+			SetupTilesArray ();
 
-		CreateRoomsAndCorridors ();
+			CreateRoomsAndCorridors ();
 
-		SetTilesValuesForRooms ();
-		SetTilesValuesForCorridors ();
+			SetTilesValuesForRooms ();
+			SetTilesValuesForCorridors ();
 
-		InstantiateTiles ();
-		InstantiateOuterWalls ();
+			InstantiateTiles ();
+			InstantiateOuterWalls ();
+		}
 
 		//vialsToSpawn = 3;
 	}

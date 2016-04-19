@@ -43,6 +43,10 @@ public class PauseMenuScript : MonoBehaviour
 
 	public void LoadMainMenu()
 	{
+		GameManager.instance.currentLevel = 1;
+		GameManager.instance.currentCharacter = 1;
+		GameManager.instance.playerHealth = GameObject.FindWithTag ("Player").GetComponent<Player> ().maxHealth;
+
 		SceneManager.LoadScene ("MainMenu", LoadSceneMode.Single);
 	}
 }
