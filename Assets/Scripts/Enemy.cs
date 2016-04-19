@@ -12,6 +12,7 @@ public class Enemy : Entity
 
 	[HideInInspector]
 	public EnemyGun gun;
+	Color baseColor;
 
 	float distanceToPlayer;
 	bool playerInSight;
@@ -23,6 +24,7 @@ public class Enemy : Entity
 		player = GameObject.Find ("Player").GetComponent<Player> ();
 		gun = transform.FindChild ("Gun").gameObject.GetComponent<EnemyGun> ();
 		currentCell = null;
+		baseColor = GetComponent<SpriteRenderer> ().color;
 	}
 
 	void Update()
@@ -103,6 +105,7 @@ public class Enemy : Entity
 			{
 				Die ();
 			}
+
 		}
 	}
 
