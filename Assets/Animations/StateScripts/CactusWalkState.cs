@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BearWalkState : StateMachineBehaviour 
+public class CactusWalkState : StateMachineBehaviour 
 {
-	bool footstep1Played;
-	bool footstep2Played;
-
 	float normalizedTime;
 	float prevNormalizedTime;
 
@@ -15,21 +12,9 @@ public class BearWalkState : StateMachineBehaviour
 		AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
 		normalizedTime = state.normalizedTime;
 
-		if (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f > .5f && !footstep2Played)
-		{
-			AudioManager.instance.PlaySoundEffectVariation("footstep 1", .97f, 1.3f);
-			footstep2Played = true;
-		}
-		if (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f > 0f && !footstep1Played) 
-		{
-			AudioManager.instance.PlaySoundEffectVariation("footstep 1", .97f, 1.3f);
-			footstep1Played = true;
-		}
-
 		if (normalizedTime - (normalizedTime % 1) != prevNormalizedTime - (prevNormalizedTime % 1)) 
 		{
-			footstep1Played = false;
-			footstep2Played = false;
+			AudioManager.instance.PlaySoundEffectVariation("footstep 1", .97f, 1.3f);
 		}
 
 		prevNormalizedTime = normalizedTime;

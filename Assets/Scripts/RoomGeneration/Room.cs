@@ -102,7 +102,7 @@ public class Room
 
 	public void AddLadder()
 	{
-		Vector2 ladderPos = new Vector2(xPos + (roomWidth * Random.Range(.1f, .9f)), yPos + (roomHeight * Random.Range(.1f, .9f)));
+		Vector2 ladderPos = new Vector2(xPos + (roomWidth * Random.Range(.25f, .75f)), yPos + (roomHeight * Random.Range(.25f, .75f)));
 		GameObject ladder = GameObject.Instantiate(Resources.Load("Ladder", typeof(GameObject)), ladderPos, Quaternion.identity) as GameObject;
 	}
 

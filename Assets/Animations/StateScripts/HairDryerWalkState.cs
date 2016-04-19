@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BearWalkState : StateMachineBehaviour 
+public class HairDryerWalkState : StateMachineBehaviour 
 {
 	bool footstep1Played;
 	bool footstep2Played;
