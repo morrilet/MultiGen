@@ -222,7 +222,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b435e50bebc68794bab2cf18cfc18b55, type: 3}
   - {fileID: 8300000, guid: 69b63c15cf0dd0547aecaab09a9df054, type: 3}
   music:
-  - {fileID: 8300000, guid: 68f3d30a99b031a47b7c00a72d267b2e, type: 3}
+  - {fileID: 8300000, guid: b68c0af39cf5da048bd6436289ffe785, type: 3}
+  - {fileID: 8300000, guid: 09aabaecad2c10343a20a47acf9e8dc5, type: 3}
+  - {fileID: 8300000, guid: 014357d81c468ed41bcabafde52a8d71, type: 3}
   musicSource: {fileID: 8294470}
   effectSource: {fileID: 8222912}
 --- !u!1001 &100100000
