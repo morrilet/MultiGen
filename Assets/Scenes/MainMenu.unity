@@ -539,7 +539,7 @@ Prefab:
     - target: {fileID: 11425044, guid: bfeb3247fe5e9f944a56369634f442f8, type: 2}
       propertyPath: effects.Array.data[8]
       value: 
-      objectReference: {fileID: 8300000, guid: b8994ffb114e71047b62e3afc400d876, type: 3}
+      objectReference: {fileID: 8300000, guid: 94443a5032418934c81cb9c0f1fb8dd7, type: 3}
     - target: {fileID: 11425044, guid: bfeb3247fe5e9f944a56369634f442f8, type: 2}
       propertyPath: effects.Array.data[9]
       value: 
@@ -805,6 +805,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
