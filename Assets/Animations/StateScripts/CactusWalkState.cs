@@ -14,7 +14,7 @@ public class CactusWalkState : StateMachineBehaviour
 
 		if (normalizedTime - (normalizedTime % 1) != prevNormalizedTime - (prevNormalizedTime % 1)) 
 		{
-			AudioManager.instance.PlaySoundEffectVariation("footstep 1", .97f, 1.3f);
+			AudioManager.instance.PlaySoundEffectVariation("Cactus Jump final", .97f, 1.3f);
 		}
 
 		prevNormalizedTime = normalizedTime;
