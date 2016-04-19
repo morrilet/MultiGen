@@ -15,6 +15,12 @@ public class MainMenuScript : MonoBehaviour
 		SceneManager.LoadScene ("LevelGenTest", LoadSceneMode.Single);
 	}
 
+	public void PlayTutorial()
+	{
+		AudioManager.instance.StopMusic ();
+		SceneManager.LoadScene ("Tutorial", LoadSceneMode.Single);
+	}
+
 	public void Exit ()
 	{
 		Application.Quit ();

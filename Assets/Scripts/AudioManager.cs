@@ -26,6 +26,7 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void PlayMusic(string songName)
 	{
+		StopMusic ();
 		for (int i = 0; i < music.Length; i++) 
 		{
 			if (music [i].name == songName) 
@@ -35,6 +36,41 @@ public class AudioManager : Singleton<AudioManager>
 				musicSource.Play ();
 			}
 		}
+	}
+
+	public void PlayMusicWithIntro(string introName, string songName)
+	{
+		StartCoroutine (PlayMusicWithIntroCoroutine(introName, songName));
+	}
+
+	IEnumerator PlayMusicWithIntroCoroutine(string introName, string songName)
+	{
+		StopMusic ();
+
+		for (int i = 0; i < music.Length; i++) 
+		{
+			if (music [i].name == introName)
+			{
+				musicSource.clip = music [i];
+				musicSource.loop = false;
+				musicSource.Play ();
+				yield return new WaitForSeconds (music [i].length);
+			}
+		}
+		for (int i = 0; i < music.Length; i++) 
+		{
+			if (music [i].name == songName)
+			{
+				musicSource.clip = music [i];
+				musicSource.loop = true;
+				musicSource.Play ();
+			}
+		}
+	}
+
+	public void StopMusic()
+	{
+		musicSource.Stop ();
 	}
 
 	public void PlaySoundEffect(string clipName)
@@ -66,10 +102,5 @@ public class AudioManager : Singleton<AudioManager>
 	{
 		AudioClip randomClip = fxList [Random.Range (0, fxList.Length)];
 		PlaySoundEffect (randomClip.name.ToString());
-	}
-
-	public void StopMusic()
-	{
-		musicSource.Stop ();
 	}
 }

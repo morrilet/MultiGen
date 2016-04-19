@@ -69139,6 +69139,18 @@ Prefab:
       propertyPath: level
       value: 
       objectReference: {fileID: 1080325791}
+    - target: {fileID: 2020846, guid: abd3b96b02e015a4f81dab8dd8d2d37b, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0.07058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020846, guid: abd3b96b02e015a4f81dab8dd8d2d37b, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0.058823533
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020846, guid: abd3b96b02e015a4f81dab8dd8d2d37b, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0.20784315
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abd3b96b02e015a4f81dab8dd8d2d37b, type: 2}
   m_IsPrefabParent: 0
