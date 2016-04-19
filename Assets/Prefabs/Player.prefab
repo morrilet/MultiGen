@@ -221,7 +221,7 @@ MonoBehaviour:
   bulletSpeedDeviation: 0
   bulletPrefab: {fileID: 101966, guid: 2a4070f0e86b3c04aaa8ff53f529c58a, type: 2}
   muzzleFlash: {fileID: 0}
-  shootSound: 
+  shootSound: Cactus Gunshot final
   bulletOffset: {x: 0, y: 0, z: 0}
   bulletSpeed: 18
   damage: 5
@@ -247,7 +247,7 @@ MonoBehaviour:
   bulletSpeedDeviation: 0
   bulletPrefab: {fileID: 130266, guid: d4341dd466f08674d8335931a3640021, type: 2}
   muzzleFlash: {fileID: 0}
-  shootSound: 
+  shootSound: Hairdryer Gunshot
   bulletOffset: {x: 0, y: 0, z: 0}
   bulletSpeed: 9
   damage: 0.8

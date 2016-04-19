@@ -2834,6 +2834,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11442872, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
+      propertyPath: shootSound
+      value: Hairdryer Gunshot
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433108, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
+      propertyPath: shootSound
+      value: Cactus Gunshot final
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
   m_IsPrefabParent: 0
