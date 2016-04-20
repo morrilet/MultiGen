@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21292486}
   - 114: {fileID: 11484376}
   - 61: {fileID: 6107326}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Vial
   m_TagString: Untagged
   m_Icon: {fileID: 0}

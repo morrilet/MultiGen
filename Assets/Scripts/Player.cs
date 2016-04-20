@@ -34,6 +34,7 @@ public class Player : Entity
 		airGun = transform.FindChild ("HairDryerGun").gameObject;
 
 		SwitchCharacter(GameManager.instance.currentCharacter);
+		if(GameManager.instance.playerHealth != 0)
 		health = GameManager.instance.playerHealth;
 	}
 

@@ -247,7 +247,7 @@ MonoBehaviour:
   bulletSpeedDeviation: 0
   bulletPrefab: {fileID: 130266, guid: d4341dd466f08674d8335931a3640021, type: 2}
   muzzleFlash: {fileID: 0}
-  shootSound: Hairdryer Gunshot
+  shootSound: Hairdryer Gunshot shortened
   bulletOffset: {x: 0, y: 0, z: 0}
   bulletSpeed: 9
   damage: 0.8
@@ -273,7 +273,7 @@ MonoBehaviour:
   bulletSpeedDeviation: 0
   bulletPrefab: {fileID: 121734, guid: d8d528524c0eb504db5d99a6a6a59e67, type: 2}
   muzzleFlash: {fileID: 0}
-  shootSound: 
+  shootSound: shot 1 (uncharged)
   bulletOffset: {x: 0, y: 0, z: 0}
   bulletSpeed: 12
   damage: 0.9

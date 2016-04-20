@@ -209,7 +209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424166, guid: bfeb3247fe5e9f944a56369634f442f8, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfeb3247fe5e9f944a56369634f442f8, type: 2}
@@ -1935,7 +1935,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1955,6 +1955,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2833,14 +2834,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11442872, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: shootSound
-      value: Hairdryer Gunshot
-      objectReference: {fileID: 0}
-    - target: {fileID: 11433108, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
-      propertyPath: shootSound
-      value: Cactus Gunshot final
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bb8684d17ed35e41ba5fa78272f52ed, type: 2}
   m_IsPrefabParent: 0
@@ -2895,7 +2888,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2915,6 +2908,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2987,7 +2981,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465216, guid: 9aa7fc82929055749be91c76c05d6d5a, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11408884, guid: 9aa7fc82929055749be91c76c05d6d5a, type: 2}
       propertyPath: isPaused

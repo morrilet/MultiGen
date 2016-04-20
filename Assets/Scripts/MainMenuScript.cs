@@ -14,6 +14,7 @@ public class MainMenuScript : MonoBehaviour
 		AudioManager.instance.StopMusic ();
 		AudioManager.instance.PlayMusicWithIntro ("main music intro", "main music loop");
 		SceneManager.LoadScene ("LevelGenTest", LoadSceneMode.Single);
+		//GameManager.instance.StartGame ();
 	}
 
 	public void PlayTutorial()
