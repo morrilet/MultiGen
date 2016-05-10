@@ -25,7 +25,8 @@ public class Gun : MonoBehaviour {
 
 	public string shootSound;
 
-	public Vector3 bulletOffset;
+	public float bulletOffset; //Distance from bullet offset center to spawn bullet.
+	public Vector3 bulletOffsetCenter; //Offset of bullet spawn center. Bullet offset rotates around this point.
 	//Bullet data
 	public float bulletSpeed;
 	public float damage;
@@ -100,7 +101,7 @@ public class Gun : MonoBehaviour {
 		Quaternion rotationHolder = new Quaternion ();
 		rotationHolder.eulerAngles = new Vector3 (0, 0, Random.Range (-rotationDeviation, rotationDeviation) + transform.rotation.eulerAngles.z);
 
-		GameObject bullet = Instantiate (bulletPrefab, transform.position + bulletOffset, rotationHolder) as GameObject;
+		GameObject bullet = Instantiate (bulletPrefab, transform.position + bulletOffsetCenter + (bulletOffset * transform.right)  , rotationHolder) as GameObject;
 
 		//Pass Parameters to instantiated bullet
 		bullet.GetComponent<Bullet> ().bulletSpeed = bulletSpeed + Random.Range(-bulletSpeedDeviation, bulletSpeedDeviation);
@@ -108,5 +109,11 @@ public class Gun : MonoBehaviour {
 		bullet.GetComponent<Bullet> ().damage = damage;
 
 		Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), transform.parent.GetComponent<Collider2D> ());
+	}
+
+	void OnDrawGizmos()
+	{
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawWireSphere (transform.position + bulletOffsetCenter + (bulletOffset * transform.right), .025f);
 	}
 }

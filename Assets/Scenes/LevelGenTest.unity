@@ -138,7 +138,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 121734, guid: d8d528524c0eb504db5d99a6a6a59e67, type: 2}
   muzzleFlash: {fileID: 0}
   shootSound: 
-  bulletOffset: {x: 0, y: 0, z: 0}
+  bulletOffset: 0
+  bulletOffsetCenter: {x: 0, y: 0, z: 0}
   bulletSpeed: 12
   damage: 10
 --- !u!212 &42451206
@@ -2132,7 +2133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 829486127}
-  dampTime: 0.1
+  dampTime: 0.05
   cameraLockMode: 0
   cameraFollowMode: 0
   movementOverridden: 0

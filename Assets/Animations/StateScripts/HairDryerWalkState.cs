@@ -17,7 +17,7 @@ public class HairDryerWalkState : StateMachineBehaviour
 
 		if (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f > .5f && !footstep2Played)
 		{
-			AudioManager.instance.PlaySoundEffectVariation("footstep 1", .97f, 1.3f);
+			AudioManager.instance.PlaySoundEffectVariation("Hairdryer walking final", .97f, 1.3f);
 			footstep2Played = true;
 		}
 		if (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f > 0f && !footstep1Played) 
