@@ -19,6 +19,10 @@ public class Enemy : Entity
 
 	public float speed;
 
+	[HideInInspector]
+	public float currentSpeed;
+	Vector3 lastPosition;
+
 	void Start()
 	{
 		player = GameObject.Find ("Player").GetComponent<Player> ();
@@ -34,9 +38,13 @@ public class Enemy : Entity
 			GetDistanceToPlayer ();
 			GetPlayerInSight ();
 		}
+			
+		currentSpeed = (lastPosition - transform.position).magnitude * 100f;
 
 		gun.LookAtTarget (player.gameObject);
 		FlipGun ();
+
+		lastPosition = transform.position;
 	}
 
 	void FlipGun()
@@ -111,6 +119,7 @@ public class Enemy : Entity
 
 	void Die()
 	{
-		Destroy (gameObject);
+		//Destroy (gameObject);
+		stateMachine.SetBool("Dead", true);
 	}
 }

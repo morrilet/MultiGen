@@ -27,7 +27,7 @@ TagManager:
   - Player
   - Enemy
   - Pickups
-  - 
+  - Corpse
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Corpse
+    uniqueID: 1819379525
     locked: 0
   - name: Enemy
     uniqueID: 2675849161

@@ -19,6 +19,8 @@ public class Player : Entity
 	[HideInInspector]
 	public GameObject currentCell;
 
+	Vector3 oldPosition;
+
 	public override void Awake()
 	{
 		base.Awake();
@@ -42,7 +44,7 @@ public class Player : Entity
 	{
 		if (!GameManager.instance.isPaused) 
 		{
-			UpdateMovement ();
+			//UpdateMovement ();
 			FlipGun ();
 		}
 
@@ -54,6 +56,18 @@ public class Player : Entity
 		if (health <= 0)
 		{
 			Die ();
+		}
+
+		Debug.Log ((oldPosition - transform.position).magnitude / Time.deltaTime + ", " + 1.0f / Time.deltaTime);
+		oldPosition = transform.position;
+	}
+
+	void FixedUpdate()
+	{
+		if (!GameManager.instance.isPaused) 
+		{
+			UpdateMovement ();
+			//FlipGun ();
 		}
 	}
 
@@ -92,9 +106,10 @@ public class Player : Entity
 	{
 		if (!GameManager.instance.isPaused)
 		{
-			Vector2 velocity = new Vector2 (Mathf.Lerp (0, Input.GetAxis ("Horizontal") * speed, Time.deltaTime),
-				               Mathf.Lerp (0, Input.GetAxis ("Vertical") * speed, Time.deltaTime));
-			rb.velocity = velocity;
+			//Vector2 velocity = new Vector2 (Mathf.Lerp (0, Input.GetAxis ("Horizontal") * speed, .75f),
+			//	               Mathf.Lerp (0, Input.GetAxis ("Vertical") * speed, .75f));
+			Vector2 velocity = new Vector2(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed);
+			rb.velocity = velocity * Time.deltaTime;
 			animator.SetFloat ("Speed", Mathf.Abs (velocity.magnitude));
 		}
 

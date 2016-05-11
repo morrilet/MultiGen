@@ -25,6 +25,16 @@ public class PatrolState : StateMachineBehaviour
 	{
 		currentCell = animator.GetComponent<Enemy> ().currentCell;
 
+		if (animator.GetComponent<Enemy> ().currentSpeed <= 0) 
+		{
+			animator.speed = 0;
+		} 
+		else 
+		{
+			animator.speed = 2;
+		}
+			
+
 		if (!calculatedNewRandomizedCourseVector) 
 		{
 			randomizedCourseVector = FindRandomSpotWithinCurrentCell ();
@@ -41,7 +51,7 @@ public class PatrolState : StateMachineBehaviour
 			animator.transform.position += (randomizedCourseVector - animator.transform.position).normalized * animator.GetComponent<Enemy>().speed * Time.deltaTime;
 		}
 
-		if (stuckTimer >= stuckTime) 
+		if (stuckTimer >= stuckTime)
 		{
 			randomizedCourseVector = FindRandomSpotWithinCurrentCell ();
 		}

@@ -18,6 +18,6 @@ public class CactusWalkState : StateMachineBehaviour
 		}
 
 		prevNormalizedTime = normalizedTime;
-		Debug.Log (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f);
+		//Debug.Log (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f);
 	}
 }

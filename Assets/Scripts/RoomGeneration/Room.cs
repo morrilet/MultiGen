@@ -108,7 +108,7 @@ public class Room
 
 	private void PlaceEnemies()
 	{
-		enemyCount = Random.Range ((int)(GameManager.instance.currentLevel / 4f), 1 + (int)(GameManager.instance.currentLevel / 2f));
+		enemyCount = Random.Range ((int)(GameManager.instance.currentLevel / 4f), 2 + (int)(GameManager.instance.currentLevel / 2f));
 		enemyLocations = new Vector2[enemyCount];
 		for (int i = 0; i < enemyLocations.Length; i++)
 		{

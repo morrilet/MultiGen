@@ -17,7 +17,8 @@ public class HairDryerWalkState : StateMachineBehaviour
 
 		if (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f > .5f && !footstep2Played)
 		{
-			AudioManager.instance.PlaySoundEffectVariation("Hairdryer walking final", .97f, 1.3f);
+			//Commented out because it was too much noise. One step is fine.
+			//AudioManager.instance.PlaySoundEffectVariation("Hairdryer walking final", .97f, 1.3f);
 			footstep2Played = true;
 		}
 		if (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f > 0f && !footstep1Played) 
@@ -33,6 +34,6 @@ public class HairDryerWalkState : StateMachineBehaviour
 		}
 
 		prevNormalizedTime = normalizedTime;
-		Debug.Log (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f);
+		//Debug.Log (Mathf.Round ((state.normalizedTime % 1) * 10) / 10f);
 	}
 }

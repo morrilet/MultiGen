@@ -77,7 +77,7 @@ public class EnemyGun : MonoBehaviour
 		Quaternion rotationHolder = new Quaternion ();
 		rotationHolder.eulerAngles = new Vector3 (0, 0, Random.Range (-rotationDeviation, rotationDeviation) + transform.rotation.eulerAngles.z);
 
-		GameObject bullet = Instantiate (bulletPrefab, transform.position + bulletOffset, rotationHolder) as GameObject;
+		GameObject bullet = Instantiate (bulletPrefab, transform.position + (transform.up * .1f) + (transform.right * .3f), rotationHolder) as GameObject;
 
 		//Pass Parameters to instantiated bullet
 		bullet.GetComponent<EnemyBullet> ().bulletSpeed = bulletSpeed + Random.Range(-bulletSpeedDeviation, bulletSpeedDeviation);
@@ -85,5 +85,11 @@ public class EnemyGun : MonoBehaviour
 		bullet.GetComponent<EnemyBullet> ().damage = damage;
 
 		Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), transform.parent.GetComponent<Collider2D> ());
+	}
+
+	void OnDrawGizmos()
+	{
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawWireSphere (transform.position + (transform.up * .1f) + (transform.right * .3f), .025f);
 	}
 }
