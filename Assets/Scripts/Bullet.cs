@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour {
 
 		if (coll.gameObject.tag == "Enemy")
 		{
-			Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.1f, .075f);
+			Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.2f, .15f);
 			GameManager.instance.Sleep (1);
 			Destroy (gameObject);
 		}

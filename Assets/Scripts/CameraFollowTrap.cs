@@ -23,6 +23,8 @@ public class CameraFollowTrap : MonoBehaviour
 
 	public bool movementOverridden;
 
+	bool isShaking;
+
 	void Start()
 	{
 		trap = this.GetComponent<CameraTrap> ();
@@ -32,6 +34,8 @@ public class CameraFollowTrap : MonoBehaviour
 		cameraExtents.x = (cameraExtents.y * Screen.width) / Screen.height;
 
 		movementOverridden = false;
+
+		isShaking = false;
 	}
 
 	void Update()
@@ -145,12 +149,14 @@ public class CameraFollowTrap : MonoBehaviour
 
 	public void ScreenShake(float duration, float intensity)
 	{
-		StartCoroutine(CameraShake(duration, intensity));
+		if(!isShaking)
+			StartCoroutine(CameraShake(duration, intensity));
 	}
 
 	private IEnumerator CameraShake(float duration, float intensity)
 	{
 		Vector3 startPos = transform.position;
+		isShaking = true;
 		for (float t = 0; t < duration; t += Time.deltaTime) 
 		{
 			if (t % .05 <= .15f && !movementOverridden)
@@ -160,6 +166,7 @@ public class CameraFollowTrap : MonoBehaviour
 			transform.position += new Vector3 (Random.Range (-intensity, intensity), Random.Range (-intensity, intensity), 0f);
 			yield return null;
 		}
+		isShaking = false;
 	}
 
 	#region Custom Data

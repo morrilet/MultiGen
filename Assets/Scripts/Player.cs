@@ -75,7 +75,7 @@ public class Player : Entity
 	{
 		if (other.gameObject.layer == LayerMask.NameToLayer ("EnemyBullet")) 
 		{
-			Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.2f, .5f);
+			Camera.main.GetComponent<CameraFollowTrap> ().ScreenShake (.25f, .3f);
 			health -= other.gameObject.GetComponent<EnemyBullet> ().damage;
 		}
 	}
